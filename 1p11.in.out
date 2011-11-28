@@ -1,7 +1,7 @@
 ============================== Prover9 ===============================
 Prover9 (32) version 2009-11A, November 2009.
-Process 29629 was started by rafpaf on web107.webfaction.com,
-Mon Nov 28 02:36:48 2011
+Process 31031 was started by rafpaf on web107.webfaction.com,
+Mon Nov 28 18:04:27 2011
 The command was "prover9 -f 1p11.in".
 ============================== end of head ===========================
 
@@ -275,4 +275,4 @@ THEOREM PROVED
 
 Exiting with 1 proof.
 
-Process 29629 exit (max_proofs) Mon Nov 28 02:36:48 2011
+Process 31031 exit (max_proofs) Mon Nov 28 18:04:27 2011
