@@ -1,0 +1,131 @@
+============================== Prover9 ===============================
+Prover9 (32) version 2009-11A, November 2009.
+Process 2649 was started by rafpaf on web107.webfaction.com,
+Mon Nov 28 18:24:55 2011
+The command was "prover9 -f 2p7.in".
+============================== end of head ===========================
+
+============================== INPUT =================================
+
+% Reading from file 2p7.in
+
+
+formulas(assumptions).
+(all e all c (cause(c,e) -> conceived_through(e,c))).
+(all x all y (cause(x,y) -> (exists connection connects(connection,x,y)))).
+end_of_list.
+
+formulas(goals).
+(all connection ((exists i exists j (is_idea(i) & is_idea(j) & connects(connection,i,j))) -> (exists connection2 exists t exists u (is_thing(t) & is_thing(u) & connects(connection2,t,u))))).
+end_of_list.
+
+============================== end of input ==========================
+
+============================== PROCESS NON-CLAUSAL FORMULAS ==========
+
+% Formulas that are not ordinary clauses:
+1 (all e all c (cause(c,e) -> conceived_through(e,c))) # label(non_clause).  [assumption].
+2 (all x all y (cause(x,y) -> (exists connection connects(connection,x,y)))) # label(non_clause).  [assumption].
+3 (all connection ((exists i exists j (is_idea(i) & is_idea(j) & connects(connection,i,j))) -> (exists connection2 exists t exists u (is_thing(t) & is_thing(u) & connects(connection2,t,u))))) # label(non_clause) # label(goal).  [goal].
+
+============================== end of process non-clausal formulas ===
+
+============================== PROCESS INITIAL CLAUSES ===============
+
+% Clauses before input processing:
+
+formulas(usable).
+end_of_list.
+
+formulas(sos).
+-cause(x,y) | conceived_through(y,x).  [clausify(1)].
+-cause(x,y) | connects(f1(x,y),x,y).  [clausify(2)].
+is_idea(c2).  [deny(3)].
+is_idea(c3).  [deny(3)].
+connects(c1,c2,c3).  [deny(3)].
+-is_thing(x) | -is_thing(y) | -connects(z,x,y).  [deny(3)].
+end_of_list.
+
+formulas(demodulators).
+end_of_list.
+
+============================== PREDICATE ELIMINATION =================
+
+Eliminating cause/2
+
+Eliminating is_idea/1
+
+Eliminating connects/3
+4 -is_thing(x) | -is_thing(y) | -connects(z,x,y).  [deny(3)].
+5 connects(c1,c2,c3).  [deny(3)].
+Derived: -is_thing(c2) | -is_thing(c3).  [resolve(4,c,5,a)].
+
+============================== end predicate elimination =============
+
+Auto_denials:  (no changes).
+
+Term ordering decisions:
+Predicate symbol precedence:  predicate_order([ is_thing ]).
+Function symbol precedence:  function_order([ c2, c3 ]).
+After inverse_order:  (no changes).
+Unfolding symbols: (none).
+
+Auto_inference settings:
+  % set(neg_binary_resolution).  % (HNE depth_diff=0)
+  % clear(ordered_res).  % (HNE depth_diff=0)
+  % set(ur_resolution).  % (HNE depth_diff=0)
+    % set(ur_resolution) -> set(pos_ur_resolution).
+    % set(ur_resolution) -> set(neg_ur_resolution).
+
+Auto_process settings:
+  % set(unit_deletion).  % (Horn set with negative nonunits)
+
+kept:      6 -is_thing(c2) | -is_thing(c3).  [resolve(4,c,5,a)].
+
+============================== end of process initial clauses ========
+
+============================== CLAUSES FOR SEARCH ====================
+
+% Clauses after input processing:
+
+formulas(usable).
+end_of_list.
+
+formulas(sos).
+6 -is_thing(c2) | -is_thing(c3).  [resolve(4,c,5,a)].
+end_of_list.
+
+formulas(demodulators).
+end_of_list.
+
+============================== end of clauses for search =============
+
+============================== SEARCH ================================
+
+% Starting search at 0.01 seconds.
+
+given #1 (I,wt=4): 6 -is_thing(c2) | -is_thing(c3).  [resolve(4,c,5,a)].
+
+============================== STATISTICS ============================
+
+Given=1. Generated=1. Kept=1. proofs=0.
+Usable=1. Sos=0. Demods=0. Limbo=0, Disabled=7. Hints=0.
+Kept_by_rule=0, Deleted_by_rule=0.
+Forward_subsumed=0. Back_subsumed=0.
+Sos_limit_deleted=0. Sos_displaced=0. Sos_removed=0.
+New_demodulators=0 (0 lex), Back_demodulated=0. Back_unit_deleted=0.
+Demod_attempts=0. Demod_rewrites=0.
+Res_instance_prunes=0. Para_instance_prunes=0. Basic_paramod_prunes=0.
+Nonunit_fsub_feature_tests=0. Nonunit_bsub_feature_tests=1.
+Megabytes=0.02.
+User_CPU=0.01, System_CPU=0.00, Wall_clock=0.
+
+============================== end of statistics =====================
+
+============================== end of search =========================
+
+SEARCH FAILED
+
+Exiting with failure.
+
+Process 2649 exit (sos_empty) Mon Nov 28 18:24:55 2011

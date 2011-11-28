@@ -1,0 +1,7 @@
+% observations about the prover9 approach
+
+* each 'edge' in the graph that is the order and connection of ideas runs in
+  the opposite direction from the edge in the graph that is the order and
+  connection of things.
+* the definitions in part 1 all seems to involve modality, or do they? they all
+  talk about what 'can be conceived'. what is the meaning of this word 'can'?

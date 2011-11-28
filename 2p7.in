@@ -1,8 +1,25 @@
 formulas(assumptions).
 
     % 1a4    
-    all e all c ( cause(c,e) -> conceived_through(e,c) ).
+    all e all c (
+        % if c causes e
+        cause(c,e) ->
+        % then
+        all ic all ie (
+            % the idea of e depends on and involves the idea of c
+            ( is_idea_of(ic,c) & is_idea_of(ie,e) ) ->
+            ( depends_on(ie,ic) & involves(ie,ic) )
+        )
+    ).
     % todo: translate conceived through into depends and involves
+
+    all i all o ( is_idea_of(i,o) -> is_idea(i) )
+
+    % each dependency relation is a "connection" in a graph
+    all x all y ( depends_on(x,y) -> exists c ( connects(c,x,y) )
+
+    % each causal relation is a connection
+    all x all y ( cause(x,y) -> exists connection ( connects(connection,x,y) ) ).
 
 end_of_list.
 
