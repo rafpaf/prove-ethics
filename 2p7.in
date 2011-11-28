@@ -15,10 +15,12 @@ formulas(assumptions).
     all i all o ( is_idea_of(i,o) -> is_idea(i) ).
 
     % each dependency relation is a "connection" in a graph
-    all x all y ( depends_on(x,y) -> exists c ( connects(c,x,y) ).
+    all x all y ( depends_on(x,y) -> exists c ( connects(c,y,x) ) ).
 
     % each causal relation is a connection
-    all x all y ( cause(x,y) -> exists connection ( connects(connection,x,y) ) ).
+    all x all y ( cause(x,y) -> exists c ( connects(c,x,y) ) ).
+
+    all x is_thing(x).
 
 end_of_list.
 
