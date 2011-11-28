@@ -1,0 +1,15 @@
+% test second order stuff
+
+formulas(assumptions).
+
+    all F all x (-possibly(-has(x,F)) -> necessarily(has(x,F))).
+
+    -possibly(-has(God,existence)).
+
+end_of_list.
+
+formulas(goals).
+
+    necessarily(has(God,existence)).
+
+end_of_list.
