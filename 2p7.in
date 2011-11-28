@@ -2,11 +2,11 @@ formulas(assumptions).
 
     % 1a4    
     all e all c (
-        % if c causes e
+        % if c causes e...
         cause(c,e) ->
-        % then
+        % ...then...
         all ic all ie (
-            % the idea of e depends on and involves the idea of c
+            % ...the idea of e depends on and involves the idea of c
             ( is_idea_of(ic,c) & is_idea_of(ie,e) ) ->
             ( depends_on(ie,ic) & involves(ie,ic) )
         )
