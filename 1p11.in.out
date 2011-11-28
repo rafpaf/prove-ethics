@@ -1,0 +1,280 @@
+============================== Prover9 ===============================
+Prover9 (32) version 2009-11A, November 2009.
+Process 28731 was started by rafpaf on web107.webfaction.com,
+Mon Nov 28 02:32:36 2011
+The command was "prover9 -f 1p11.in".
+============================== end of head ===========================
+
+============================== INPUT =================================
+
+% Reading from file 1p11.in
+
+
+formulas(assumptions).
+(all x (self_explanatory(x) <-> (all y (conceived_through(x,y) -> y = x)))).
+(all x (substance(x) -> self_explanatory(x))).
+(all x all y (conceived_through(x,y) <-> causes(y,x))).
+(all x all F (involves_essentially(x,F) <-> (all e (is_essence_of(e,x) -> involves(e,F))))).
+(all x all F (causes(x,x) <-> involves_essentially(x,existence))).
+(all x exists y causes(y,x)).
+substance(God).
+(all x all F (-conceivably_has(x,F) <-> necessarily_lacks(x,F))).
+(all x all F (necessarily_lacks(x,F) <-> -possibly_has(x,F))).
+(all x all F (conceivably_lacks(x,F) <-> -necessarily_has(x,F))).
+(all x all F (existence = F -> (conceivably_lacks(x,F) -> -involves_essentially(x,existence)))).
+end_of_list.
+
+formulas(goals).
+necessarily_has(God,existence).
+end_of_list.
+
+============================== end of input ==========================
+
+============================== PROCESS NON-CLAUSAL FORMULAS ==========
+
+% Formulas that are not ordinary clauses:
+1 (all x (self_explanatory(x) <-> (all y (conceived_through(x,y) -> y = x)))) # label(non_clause).  [assumption].
+2 (all x (substance(x) -> self_explanatory(x))) # label(non_clause).  [assumption].
+3 (all x all y (conceived_through(x,y) <-> causes(y,x))) # label(non_clause).  [assumption].
+4 (all x all F (involves_essentially(x,F) <-> (all e (is_essence_of(e,x) -> involves(e,F))))) # label(non_clause).  [assumption].
+5 (all x all F (causes(x,x) <-> involves_essentially(x,existence))) # label(non_clause).  [assumption].
+6 (all x exists y causes(y,x)) # label(non_clause).  [assumption].
+7 (all x all F (-conceivably_has(x,F) <-> necessarily_lacks(x,F))) # label(non_clause).  [assumption].
+8 (all x all F (necessarily_lacks(x,F) <-> -possibly_has(x,F))) # label(non_clause).  [assumption].
+9 (all x all F (conceivably_lacks(x,F) <-> -necessarily_has(x,F))) # label(non_clause).  [assumption].
+10 (all x all F (existence = F -> (conceivably_lacks(x,F) -> -involves_essentially(x,existence)))) # label(non_clause).  [assumption].
+11 necessarily_has(God,existence) # label(non_clause) # label(goal).  [goal].
+
+============================== end of process non-clausal formulas ===
+
+============================== PROCESS INITIAL CLAUSES ===============
+
+% Clauses before input processing:
+
+formulas(usable).
+end_of_list.
+
+formulas(sos).
+-self_explanatory(x) | -conceived_through(x,y) | y = x.  [clausify(1)].
+self_explanatory(x) | conceived_through(x,f1(x)).  [clausify(1)].
+self_explanatory(x) | f1(x) != x.  [clausify(1)].
+-substance(x) | self_explanatory(x).  [clausify(2)].
+-conceived_through(x,y) | causes(y,x).  [clausify(3)].
+conceived_through(x,y) | -causes(y,x).  [clausify(3)].
+-involves_essentially(x,y) | -is_essence_of(z,x) | involves(z,y).  [clausify(4)].
+involves_essentially(x,y) | is_essence_of(f2(x,y),x).  [clausify(4)].
+involves_essentially(x,y) | -involves(f2(x,y),y).  [clausify(4)].
+-causes(x,x) | involves_essentially(x,existence).  [clausify(5)].
+causes(x,x) | -involves_essentially(x,existence).  [clausify(5)].
+causes(f3(x),x).  [clausify(6)].
+substance(God).  [assumption].
+conceivably_has(x,y) | necessarily_lacks(x,y).  [clausify(7)].
+-conceivably_has(x,y) | -necessarily_lacks(x,y).  [clausify(7)].
+-necessarily_lacks(x,y) | -possibly_has(x,y).  [clausify(8)].
+necessarily_lacks(x,y) | possibly_has(x,y).  [clausify(8)].
+-conceivably_lacks(x,y) | -necessarily_has(x,y).  [clausify(9)].
+conceivably_lacks(x,y) | necessarily_has(x,y).  [clausify(9)].
+existence != x | -conceivably_lacks(y,x) | -involves_essentially(y,existence).  [clausify(10)].
+-necessarily_has(God,existence).  [deny(11)].
+end_of_list.
+
+formulas(demodulators).
+end_of_list.
+
+============================== PREDICATE ELIMINATION =================
+
+Eliminating self_explanatory/1
+12 self_explanatory(x) | conceived_through(x,f1(x)).  [clausify(1)].
+13 -self_explanatory(x) | -conceived_through(x,y) | y = x.  [clausify(1)].
+Derived: conceived_through(x,f1(x)) | -conceived_through(x,y) | y = x.  [resolve(12,a,13,a)].
+14 self_explanatory(x) | f1(x) != x.  [clausify(1)].
+Derived: f1(x) != x | -conceived_through(x,y) | y = x.  [resolve(14,a,13,a)].
+15 -substance(x) | self_explanatory(x).  [clausify(2)].
+Derived: -substance(x) | -conceived_through(x,y) | y = x.  [resolve(15,b,13,a)].
+
+Eliminating is_essence_of/2
+16 involves_essentially(x,y) | is_essence_of(f2(x,y),x).  [clausify(4)].
+17 -involves_essentially(x,y) | -is_essence_of(z,x) | involves(z,y).  [clausify(4)].
+Derived: involves_essentially(x,y) | -involves_essentially(x,z) | involves(f2(x,y),z).  [resolve(16,b,17,b)].
+
+Eliminating substance/1
+18 -substance(x) | -conceived_through(x,y) | y = x.  [resolve(15,b,13,a)].
+19 substance(God).  [assumption].
+Derived: -conceived_through(God,x) | x = God.  [resolve(18,a,19,a)].
+
+Eliminating conceivably_has/2
+20 -conceivably_has(x,y) | -necessarily_lacks(x,y).  [clausify(7)].
+21 conceivably_has(x,y) | necessarily_lacks(x,y).  [clausify(7)].
+
+Eliminating necessarily_lacks/2
+22 necessarily_lacks(x,y) | possibly_has(x,y).  [clausify(8)].
+23 -necessarily_lacks(x,y) | -possibly_has(x,y).  [clausify(8)].
+
+Eliminating conceivably_lacks/2
+24 conceivably_lacks(x,y) | necessarily_has(x,y).  [clausify(9)].
+25 -conceivably_lacks(x,y) | -necessarily_has(x,y).  [clausify(9)].
+26 existence != x | -conceivably_lacks(y,x) | -involves_essentially(y,existence).  [clausify(10)].
+Derived: existence != x | -involves_essentially(y,existence) | necessarily_has(y,x).  [resolve(26,b,24,a)].
+
+============================== end predicate elimination =============
+
+Auto_denials:  (non-Horn, no changes).
+
+Term ordering decisions:
+Predicate symbol precedence:  predicate_order([ =, conceived_through, involves_essentially, causes, involves, necessarily_has ]).
+Function symbol precedence:  function_order([ existence, God, f2, f1, f3 ]).
+After inverse_order:  (no changes).
+Unfolding symbols: (none).
+
+Auto_inference settings:
+  % set(paramodulation).  % (positive equality literals)
+  % set(binary_resolution).  % (non-Horn)
+  % set(neg_ur_resolution).  % (non-Horn, less than 100 clauses)
+
+Auto_process settings:
+  % set(factor).  % (non-Horn)
+  % set(unit_deletion).  % (non-Horn)
+
+kept:      27 -conceived_through(x,y) | causes(y,x).  [clausify(3)].
+kept:      28 conceived_through(x,y) | -causes(y,x).  [clausify(3)].
+kept:      29 involves_essentially(x,y) | -involves(f2(x,y),y).  [clausify(4)].
+kept:      30 -causes(x,x) | involves_essentially(x,existence).  [clausify(5)].
+kept:      31 causes(x,x) | -involves_essentially(x,existence).  [clausify(5)].
+kept:      32 causes(f3(x),x).  [clausify(6)].
+kept:      33 -necessarily_has(God,existence).  [deny(11)].
+kept:      34 conceived_through(x,f1(x)) | -conceived_through(x,y) | y = x.  [resolve(12,a,13,a)].
+kept:      35 f1(x) != x | -conceived_through(x,y) | y = x.  [resolve(14,a,13,a)].
+kept:      36 involves_essentially(x,y) | -involves_essentially(x,z) | involves(f2(x,y),z).  [resolve(16,b,17,b)].
+           37 -conceived_through(God,x) | x = God.  [resolve(18,a,19,a)].
+kept:      38 -conceived_through(God,x) | God = x.  [copy(37),flip(b)].
+kept:      39 existence != x | -involves_essentially(y,existence) | necessarily_has(y,x).  [resolve(26,b,24,a)].
+
+============================== end of process initial clauses ========
+
+============================== CLAUSES FOR SEARCH ====================
+
+% Clauses after input processing:
+
+formulas(usable).
+end_of_list.
+
+formulas(sos).
+27 -conceived_through(x,y) | causes(y,x).  [clausify(3)].
+28 conceived_through(x,y) | -causes(y,x).  [clausify(3)].
+29 involves_essentially(x,y) | -involves(f2(x,y),y).  [clausify(4)].
+30 -causes(x,x) | involves_essentially(x,existence).  [clausify(5)].
+31 causes(x,x) | -involves_essentially(x,existence).  [clausify(5)].
+32 causes(f3(x),x).  [clausify(6)].
+33 -necessarily_has(God,existence).  [deny(11)].
+34 conceived_through(x,f1(x)) | -conceived_through(x,y) | y = x.  [resolve(12,a,13,a)].
+35 f1(x) != x | -conceived_through(x,y) | y = x.  [resolve(14,a,13,a)].
+36 involves_essentially(x,y) | -involves_essentially(x,z) | involves(f2(x,y),z).  [resolve(16,b,17,b)].
+38 -conceived_through(God,x) | God = x.  [copy(37),flip(b)].
+39 existence != x | -involves_essentially(y,existence) | necessarily_has(y,x).  [resolve(26,b,24,a)].
+end_of_list.
+
+formulas(demodulators).
+end_of_list.
+
+============================== end of clauses for search =============
+
+============================== SEARCH ================================
+
+% Starting search at 0.01 seconds.
+
+given #1 (I,wt=6): 27 -conceived_through(x,y) | causes(y,x).  [clausify(3)].
+
+given #2 (I,wt=6): 28 conceived_through(x,y) | -causes(y,x).  [clausify(3)].
+
+given #3 (I,wt=8): 29 involves_essentially(x,y) | -involves(f2(x,y),y).  [clausify(4)].
+
+given #4 (I,wt=6): 30 -causes(x,x) | involves_essentially(x,existence).  [clausify(5)].
+
+given #5 (I,wt=6): 31 causes(x,x) | -involves_essentially(x,existence).  [clausify(5)].
+
+given #6 (I,wt=4): 32 causes(f3(x),x).  [clausify(6)].
+
+given #7 (I,wt=3): 33 -necessarily_has(God,existence).  [deny(11)].
+
+given #8 (I,wt=10): 34 conceived_through(x,f1(x)) | -conceived_through(x,y) | y = x.  [resolve(12,a,13,a)].
+
+given #9 (I,wt=10): 35 f1(x) != x | -conceived_through(x,y) | y = x.  [resolve(14,a,13,a)].
+
+given #10 (I,wt=11): 36 involves_essentially(x,y) | -involves_essentially(x,z) | involves(f2(x,y),z).  [resolve(16,b,17,b)].
+
+given #11 (I,wt=6): 38 -conceived_through(God,x) | God = x.  [copy(37),flip(b)].
+
+given #12 (I,wt=9): 39 existence != x | -involves_essentially(y,existence) | necessarily_has(y,x).  [resolve(26,b,24,a)].
+
+given #13 (A,wt=4): 40 conceived_through(x,f3(x)).  [resolve(32,a,28,b)].
+
+given #14 (F,wt=3): 41 -involves_essentially(God,existence).  [ur(39,a,xx,c,33,a)].
+
+given #15 (F,wt=3): 45 -causes(God,God).  [ur(30,b,41,a)].
+
+given #16 (F,wt=3): 47 -conceived_through(God,God).  [ur(27,b,45,a)].
+
+given #17 (F,wt=5): 46 -involves(f2(God,existence),existence).  [ur(29,a,41,a)].
+
+given #18 (T,wt=4): 42 f3(God) = God.  [resolve(40,a,38,a),flip(a)].
+
+============================== PROOF =================================
+
+% Proof 1 at 0.01 (+ 0.00) seconds.
+% Length of proof is 26.
+% Level of proof is 6.
+% Maximum clause weight is 9.000.
+% Given clauses 18.
+
+1 (all x (self_explanatory(x) <-> (all y (conceived_through(x,y) -> y = x)))) # label(non_clause).  [assumption].
+2 (all x (substance(x) -> self_explanatory(x))) # label(non_clause).  [assumption].
+3 (all x all y (conceived_through(x,y) <-> causes(y,x))) # label(non_clause).  [assumption].
+5 (all x all F (causes(x,x) <-> involves_essentially(x,existence))) # label(non_clause).  [assumption].
+6 (all x exists y causes(y,x)) # label(non_clause).  [assumption].
+9 (all x all F (conceivably_lacks(x,F) <-> -necessarily_has(x,F))) # label(non_clause).  [assumption].
+10 (all x all F (existence = F -> (conceivably_lacks(x,F) -> -involves_essentially(x,existence)))) # label(non_clause).  [assumption].
+11 necessarily_has(God,existence) # label(non_clause) # label(goal).  [goal].
+13 -self_explanatory(x) | -conceived_through(x,y) | y = x.  [clausify(1)].
+15 -substance(x) | self_explanatory(x).  [clausify(2)].
+18 -substance(x) | -conceived_through(x,y) | y = x.  [resolve(15,b,13,a)].
+19 substance(God).  [assumption].
+24 conceivably_lacks(x,y) | necessarily_has(x,y).  [clausify(9)].
+26 existence != x | -conceivably_lacks(y,x) | -involves_essentially(y,existence).  [clausify(10)].
+28 conceived_through(x,y) | -causes(y,x).  [clausify(3)].
+30 -causes(x,x) | involves_essentially(x,existence).  [clausify(5)].
+32 causes(f3(x),x).  [clausify(6)].
+33 -necessarily_has(God,existence).  [deny(11)].
+37 -conceived_through(God,x) | x = God.  [resolve(18,a,19,a)].
+38 -conceived_through(God,x) | God = x.  [copy(37),flip(b)].
+39 existence != x | -involves_essentially(y,existence) | necessarily_has(y,x).  [resolve(26,b,24,a)].
+40 conceived_through(x,f3(x)).  [resolve(32,a,28,b)].
+41 -involves_essentially(God,existence).  [ur(39,a,xx,c,33,a)].
+42 f3(God) = God.  [resolve(40,a,38,a),flip(a)].
+45 -causes(God,God).  [ur(30,b,41,a)].
+48 $F.  [para(42(a,1),32(a,1)),unit_del(a,45)].
+
+============================== end of proof ==========================
+
+============================== STATISTICS ============================
+
+Given=18. Generated=25. Kept=20. proofs=1.
+Usable=18. Sos=2. Demods=1. Limbo=0, Disabled=27. Hints=0.
+Kept_by_rule=0, Deleted_by_rule=0.
+Forward_subsumed=4. Back_subsumed=0.
+Sos_limit_deleted=0. Sos_displaced=0. Sos_removed=0.
+New_demodulators=1 (0 lex), Back_demodulated=0. Back_unit_deleted=0.
+Demod_attempts=33. Demod_rewrites=0.
+Res_instance_prunes=0. Para_instance_prunes=0. Basic_paramod_prunes=0.
+Nonunit_fsub_feature_tests=0. Nonunit_bsub_feature_tests=12.
+Megabytes=0.05.
+User_CPU=0.01, System_CPU=0.00, Wall_clock=0.
+
+============================== end of statistics =====================
+
+============================== end of search =========================
+
+THEOREM PROVED
+
+Exiting with 1 proof.
+
+Process 28731 exit (max_proofs) Mon Nov 28 02:32:36 2011
