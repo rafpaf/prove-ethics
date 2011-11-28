@@ -41,8 +41,7 @@ formulas(assumptions).
     % What can be conceived as not existing doesn't essentially involve
     % existence.
     all x all F (
-        (existence = F) ->
-        ( conceivably_lacks(x,F) -> -involves_essentially(x,existence) )
+        conceivably_lacks(x,existence) -> -involves_essentially(x,existence)
     ).
 
 end_of_list.
