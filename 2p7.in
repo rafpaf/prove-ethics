@@ -11,12 +11,11 @@ formulas(assumptions).
             ( depends_on(ie,ic) & involves(ie,ic) )
         )
     ).
-    % todo: translate conceived through into depends and involves
 
-    all i all o ( is_idea_of(i,o) -> is_idea(i) )
+    all i all o ( is_idea_of(i,o) -> is_idea(i) ).
 
     % each dependency relation is a "connection" in a graph
-    all x all y ( depends_on(x,y) -> exists c ( connects(c,x,y) )
+    all x all y ( depends_on(x,y) -> exists c ( connects(c,x,y) ).
 
     % each causal relation is a connection
     all x all y ( cause(x,y) -> exists connection ( connects(connection,x,y) ) ).
