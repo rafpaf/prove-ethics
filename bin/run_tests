@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Check all the arguments specified in the 'arguments' file. Well, actually,
+# check only the lines in that file that begin with '+'. That way you can put
+# arguments in there that you're not ready to check.
+
+for arg in `cat arguments`; do
+    first_letter=${arg:0:1}
+    if [[ $first_letter = "+" ]]; then
+        echo ${arg:1}
+        bash demonstrate ${arg:1} && echo "good" || echo "bad"
+    fi
+done
