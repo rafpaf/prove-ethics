@@ -1,20 +1,5 @@
 #!/bin/bash
-
-PREMISES=
-CONCLUSIONS=
-
-while getopts "pc" OPTION; do
-    case $OPTION in
-        p)
-        PREMISES[${#PREMISES[@]}]=$OPTION
-        ;;
-        c)
-        CONCLUSIONS[${#CONCLUSIONS[@]}]=$OPTION
-        ;;
-    esac
-done
-
-for p in $PREMISES; do
-done
-
-prover9 -f
+args=$@
+conclusions=${args%from*}
+premises=${args#*from}
+echo "cat $conclusions | sed 's/assumptions/goals/' | cat - $premises | prover9 > /dev/null 1&>2 && echo proven || echo failure"
