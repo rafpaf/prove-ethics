@@ -4,10 +4,10 @@
 # check only the lines in that file that begin with '+'. That way you can put
 # arguments in there that you're not ready to check.
 
-for arg in `cat arguments`; do
+cat arguments | while read arg; do
     first_letter=${arg:0:1}
     if [[ $first_letter = "+" ]]; then
-        echo ${arg:1}
-        bash demonstrate ${arg:1} && echo "good" || echo "bad"
+        echo -n ${arg:1}
+        bash demonstrate ${arg:1} && echo " good" || echo " bad"
     fi
 done
