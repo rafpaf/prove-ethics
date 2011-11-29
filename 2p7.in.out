@@ -1,13 +1,13 @@
 ============================== Prover9 ===============================
 Prover9 (32) version 2009-11A, November 2009.
-Process 4468 was started by rafpaf on web107.webfaction.com,
-Mon Nov 28 18:34:20 2011
-The command was "prover9 -f /home/rafpaf/codes/prove-ethics/2p7.in".
+Process 20566 was started by rafpaf on web107.webfaction.com,
+Mon Nov 28 19:46:47 2011
+The command was "prover9 -f 2p7.in".
 ============================== end of head ===========================
 
 ============================== INPUT =================================
 
-% Reading from file /home/rafpaf/codes/prove-ethics/2p7.in
+% Reading from file 2p7.in
 
 
 formulas(assumptions).
@@ -19,7 +19,7 @@ formulas(assumptions).
 end_of_list.
 
 formulas(goals).
-(all connection ((exists i exists j (is_idea(i) & is_idea(j) & connects(connection,i,j))) -> (exists connection2 exists t exists u (is_thing(t) & is_thing(u) & connects(connection2,t,u))))).
+(all connection ((exists i exists j (is_idea(i) & is_idea(j) & connects(connection,i,j))) -> (exists connection2 exists t exists u (is_body(t) & is_body(u) & connects(connection2,t,u))))).
 end_of_list.
 
 ============================== end of input ==========================
@@ -32,7 +32,7 @@ end_of_list.
 3 (all x all y (depends_on(x,y) -> (exists c connects(c,y,x)))) # label(non_clause).  [assumption].
 4 (all x all y (cause(x,y) -> (exists c connects(c,x,y)))) # label(non_clause).  [assumption].
 5 (all x is_thing(x)) # label(non_clause).  [assumption].
-6 (all connection ((exists i exists j (is_idea(i) & is_idea(j) & connects(connection,i,j))) -> (exists connection2 exists t exists u (is_thing(t) & is_thing(u) & connects(connection2,t,u))))) # label(non_clause) # label(goal).  [goal].
+6 (all connection ((exists i exists j (is_idea(i) & is_idea(j) & connects(connection,i,j))) -> (exists connection2 exists t exists u (is_body(t) & is_body(u) & connects(connection2,t,u))))) # label(non_clause) # label(goal).  [goal].
 
 ============================== end of process non-clausal formulas ===
 
@@ -53,7 +53,7 @@ is_thing(x).  [clausify(5)].
 is_idea(c2).  [deny(6)].
 is_idea(c3).  [deny(6)].
 connects(c1,c2,c3).  [deny(6)].
--is_thing(x) | -is_thing(y) | -connects(z,x,y).  [deny(6)].
+-is_body(x) | -is_body(y) | -connects(z,x,y).  [deny(6)].
 end_of_list.
 
 formulas(demodulators).
@@ -67,19 +67,21 @@ Eliminating is_idea_of/2
 
 Eliminating depends_on/2
 
+Eliminating is_thing/1
+
 Eliminating is_idea/1
 
 Eliminating connects/3
-7 -is_thing(x) | -is_thing(y) | -connects(z,x,y).  [deny(6)].
+7 -is_body(x) | -is_body(y) | -connects(z,x,y).  [deny(6)].
 8 connects(c1,c2,c3).  [deny(6)].
-Derived: -is_thing(c2) | -is_thing(c3).  [resolve(7,c,8,a)].
+Derived: -is_body(c2) | -is_body(c3).  [resolve(7,c,8,a)].
 
 ============================== end predicate elimination =============
 
 Auto_denials:  (no changes).
 
 Term ordering decisions:
-Predicate symbol precedence:  predicate_order([ is_thing ]).
+Predicate symbol precedence:  predicate_order([ is_body ]).
 Function symbol precedence:  function_order([ c2, c3 ]).
 After inverse_order:  (no changes).
 Unfolding symbols: (none).
@@ -94,38 +96,43 @@ Auto_inference settings:
 Auto_process settings:
   % set(unit_deletion).  % (Horn set with negative nonunits)
 
-kept:      9 is_thing(x).  [clausify(5)].
-           10 -is_thing(c2) | -is_thing(c3).  [resolve(7,c,8,a)].
+kept:      9 -is_body(c2) | -is_body(c3).  [resolve(7,c,8,a)].
 
-============================== PROOF =================================
+============================== end of process initial clauses ========
 
-% Proof 1 at 0.01 (+ 0.00) seconds.
-% Length of proof is 7.
-% Level of proof is 3.
-% Maximum clause weight is 2.000.
-% Given clauses 0.
+============================== CLAUSES FOR SEARCH ====================
 
-5 (all x is_thing(x)) # label(non_clause).  [assumption].
-6 (all connection ((exists i exists j (is_idea(i) & is_idea(j) & connects(connection,i,j))) -> (exists connection2 exists t exists u (is_thing(t) & is_thing(u) & connects(connection2,t,u))))) # label(non_clause) # label(goal).  [goal].
-7 -is_thing(x) | -is_thing(y) | -connects(z,x,y).  [deny(6)].
-8 connects(c1,c2,c3).  [deny(6)].
-9 is_thing(x).  [clausify(5)].
-10 -is_thing(c2) | -is_thing(c3).  [resolve(7,c,8,a)].
-11 $F.  [copy(10),unit_del(a,9),unit_del(b,9)].
+% Clauses after input processing:
 
-============================== end of proof ==========================
+formulas(usable).
+end_of_list.
+
+formulas(sos).
+9 -is_body(c2) | -is_body(c3).  [resolve(7,c,8,a)].
+end_of_list.
+
+formulas(demodulators).
+end_of_list.
+
+============================== end of clauses for search =============
+
+============================== SEARCH ================================
+
+% Starting search at 0.01 seconds.
+
+given #1 (I,wt=4): 9 -is_body(c2) | -is_body(c3).  [resolve(7,c,8,a)].
 
 ============================== STATISTICS ============================
 
-Given=0. Generated=2. Kept=1. proofs=1.
-Usable=0. Sos=0. Demods=0. Limbo=1, Disabled=11. Hints=0.
+Given=1. Generated=1. Kept=1. proofs=0.
+Usable=1. Sos=0. Demods=0. Limbo=0, Disabled=11. Hints=0.
 Kept_by_rule=0, Deleted_by_rule=0.
 Forward_subsumed=0. Back_subsumed=0.
 Sos_limit_deleted=0. Sos_displaced=0. Sos_removed=0.
 New_demodulators=0 (0 lex), Back_demodulated=0. Back_unit_deleted=0.
 Demod_attempts=0. Demod_rewrites=0.
 Res_instance_prunes=0. Para_instance_prunes=0. Basic_paramod_prunes=0.
-Nonunit_fsub_feature_tests=0. Nonunit_bsub_feature_tests=0.
+Nonunit_fsub_feature_tests=0. Nonunit_bsub_feature_tests=1.
 Megabytes=0.03.
 User_CPU=0.01, System_CPU=0.00, Wall_clock=0.
 
@@ -133,8 +140,8 @@ User_CPU=0.01, System_CPU=0.00, Wall_clock=0.
 
 ============================== end of search =========================
 
-THEOREM PROVED
+SEARCH FAILED
 
-Exiting with 1 proof.
+Exiting with failure.
 
-Process 4468 exit (max_proofs) Mon Nov 28 18:34:20 2011
+Process 20566 exit (sos_empty) Mon Nov 28 19:46:47 2011

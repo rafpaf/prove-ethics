@@ -1,0 +1,20 @@
+#!/bin/bash
+
+PREMISES=
+CONCLUSIONS=
+
+while getopts "pc" OPTION; do
+    case $OPTION in
+        p)
+        PREMISES[${#PREMISES[@]}]=$OPTION
+        ;;
+        c)
+        CONCLUSIONS[${#CONCLUSIONS[@]}]=$OPTION
+        ;;
+    esac
+done
+
+for p in $PREMISES; do
+done
+
+prover9 -f
