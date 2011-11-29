@@ -1,5 +1,0 @@
-#!/bin/bash
-args=$@
-conclusions=${args%from*}
-premises=${args#*from}
-echo "cat $conclusions | sed 's/assumptions/goals/' | cat - $premises | prover9 > /dev/null 1&>2 && echo proven || echo failure"

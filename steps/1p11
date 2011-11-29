@@ -1,0 +1,7 @@
+formulas(assumptions).
+
+    necessarily_has(God,existence).
+
+end_of_list.
+
+% vim: set filetype=prover9 :
