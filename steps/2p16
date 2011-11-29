@@ -1,0 +1,28 @@
+formulas(assumptions).
+
+    % "The idea of any mode in which the human body is affected by external
+    % bodies must involve the nature of the human body and at the same time the
+    % nature of the external body.
+
+    all mode all body (
+        % for each mode of the human body...
+        (
+            is_human(body) &
+            is_mode_of(mode,body)
+        ) ->
+        % ...all of that mode's external causes
+        all body2 (
+            ( cause(body2,mode) & -(body2 = body) )
+            -> % are such that
+            all i all n all n2 (
+                % the idea of that mode involves the external bodies' natures
+                ( idea_of(i,body) & nature_of(n,body) & nature_of(n2,body2) )
+                ->
+                ( involves(i,n) & involves(i,n2) )
+            )
+        )
+    ).
+
+end_of_list.
+
+% vim: set filetype=prover9 :
