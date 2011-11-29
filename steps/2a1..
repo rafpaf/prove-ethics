@@ -1,1 +1,42 @@
-all mode all body
+formulas(assumptions).
+
+    % This encompasses this bit:
+    % "All modes by which a body is affected by another body follow both from
+    % the nature of the body affected at at the same time from the nature of
+    % the affecting body..."
+    
+    % I'm ignoring this bit, which I take to just be a gloss:
+    % "so that one and the same body may be moved differently according to
+    % differences in the nature of the bodies moving it. And conversely,
+    % different bodies may be moved differently by one and the same body."
+
+    all mode all body
+    (
+        (
+            % all modes of the body...
+            mode_of(mode,body) &
+            % ...with an external cause...
+            exists body2 ( cause(body2,mode) & -(body2=body) )
+        )
+        -> % ...are such that...
+        (
+            all n all n2
+            (
+                (
+                    % ...the nature of the affected body
+                    nature_of(n,body) &
+                    % ...and the nature of the affecting body
+                    nature_of(n2,body2)
+                )
+                -> % ...are such that
+                (
+                    % the mode follows from both natures
+                    follow_from(mode,n) & follow_from(mode,n2)
+                )
+            )
+        )
+    ).
+
+end_of_list.
+
+% vim: set filetype=prover9 :

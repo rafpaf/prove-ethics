@@ -8,7 +8,7 @@ formulas(assumptions).
         % for each mode of the human body...
         (
             is_human(body) &
-            is_mode_of(mode,body)
+            mode_of(mode,body)
         ) ->
         % ...all of that mode's external causes
         all body2 (
