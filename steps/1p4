@@ -1,0 +1,21 @@
+% 1p4: Two or more distinct things are distinguished
+% from one another, either by a difference in the
+% attributes of the substances or by a difference in
+% their affections.
+% 
+% Dem.: Whatever is, is either in itself or in
+% another (by 1a1), i.e. (by 1def3 and 1def5),
+% outside the intellect there is nothing except
+% substances and their affections. Therefore, there
+% is nothing outside the intellect through which a
+% number of things can be distinguished from one
+% another [II/48] except substances, or what is the
+% same (by 1def4), their attributes, and their
+% affections,[^fn9] q.e.d.
+
+formulas(assumptions).
+
+
+end_of_list.
+
+% vim:ft=prover9

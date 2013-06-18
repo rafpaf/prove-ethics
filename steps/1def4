@@ -1,0 +1,10 @@
+% 1def4: By attribute I understand what the intellect perceives of a substance,
+% as constituting its essence.
+
+formulas(assumptions).
+
+    
+
+end_of_list.
+
+% vim:ft=prover9
