@@ -1,20 +1,30 @@
-% 1p4: Two or more distinct things are distinguished
-% from one another, either by a difference in the
-% attributes of the substances or by a difference in
+% 1p4: Two or more distinct things are distinguished from one another, either
+% by a difference in the attributes of the substances or by a difference in
 % their affections.
 % 
-% Dem.: Whatever is, is either in itself or in
-% another (by 1a1), i.e. (by 1def3 and 1def5),
-% outside the intellect there is nothing except
-% substances and their affections. Therefore, there
-% is nothing outside the intellect through which a
-% number of things can be distinguished from one
-% another [II/48] except substances, or what is the
-% same (by 1def4), their attributes, and their
-% affections,[^fn9] q.e.d.
+% Dem.: Whatever is, is either in itself or in another (by 1a1), i.e. (by 1def3
+% and 1def5), outside the intellect there is nothing except substances and
+% their affections. Therefore, there is nothing outside the intellect through
+% which a number of things can be distinguished from one another except
+% substances, or what is the same (by 1def4), their attributes, and their
+% affections, q.e.d.
 
 formulas(assumptions).
 
+    % For simplicity, I will just stick to two things.
+    all a all b all c (
+        distinguished_by(a, b, c)
+        ->
+        (
+            (
+                is_a_difference_in_attributes(c, a, b)
+                & is_substance(a)
+                & is_substance(b)
+            )
+            |
+            is_a_difference_in_affections(c, a, b)
+        )
+    ).
 
 end_of_list.
 
