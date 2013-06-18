@@ -1,6 +1,6 @@
 formulas(assumptions).
 
-    % 1a4    
+    % 1a4
     all e all c (
         % if c causes e...
         cause(c,e) ->
@@ -13,3 +13,5 @@ formulas(assumptions).
     ).
 
 end_of_list.
+
+% vim:ft=prover9

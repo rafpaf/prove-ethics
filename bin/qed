@@ -8,6 +8,6 @@ cat arguments | while read arg; do
     first_letter=${arg:0:1}
     if [[ $first_letter = "+" ]]; then
         echo -n ${arg:1}
-        bash demonstrate ${arg:1} && echo " good" || echo " bad"
+        demonstrate ${arg:1} && echo " good" || echo " bad"
     fi
 done
