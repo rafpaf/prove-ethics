@@ -6,3 +6,12 @@ bear on interpretation and help me better understand the arguments.
 
 * Don't forget periods at the end of formulae.
 * Use `-(exists a ( ... ))`, not `-exists a ( ... )`
+
+# The `demonstrations` file
+
+Start a line with '#' to omit it, '+' if it's supposed to be valid, and '-' if
+it's supposed to be invalid. (The last option is good for testing to see
+whether the conclusion follows from merely from the vocabulary file `misc` or
+from a subset of the premises, which might show that you've coded a proof
+incorrectly or that Spinoza was more circuitous than he needed to be.)
+

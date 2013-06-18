@@ -122,6 +122,12 @@ formulas(assumptions).
     % regimented out.
     all a ( is_attribute(a) <-> is_substance(a) ).
 
+    all producer all product (
+        produces(producer, product)
+        ->
+        causes(producer, product)
+    ).
+
     % Noticed: Spinoza assumes that two distinct things cannot be individuated
     % by something that neither of them has, e.g., the attribute or affection
     % of a third substance.
