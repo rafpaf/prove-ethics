@@ -11,26 +11,28 @@
 
 formulas(assumptions).
 
+    % Given two things,
     all a all b (
 
-        % If there is no thing that two things have in common, ...
-        -exists t ( has(a, t) & has(b, t) )
+        % If there is no thing that they both have, ...
+        -(exists t ( has(a, t) & has(b, t) ))
 
         % ...then...
         ->
 
+        % ...neither is understood through nor causes the other.
         (
-
             neither_is_understood_through_the_other(a, b)
-            & neither_causes_the_other(a, b)
-
+            &
+            neither_causes_the_other(a, b)
         )
-
     ).
 
 end_of_list.
 
 % Note that "they cannot be understood through one another" must mean "neither
-% can be understood through one another"
+% can be understood through the another", although strictly speaking it could
+% mean that it is impossible to (simultaneously?) understand each through the
+% other.
 
 % vim:ft=prover9

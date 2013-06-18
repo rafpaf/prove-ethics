@@ -6,7 +6,7 @@ formulas(assumptions).
 
     all a all b (
         % If two things have nothing in common with one another...
-        -exists t ( has(a, t) & has(b, t) )
+        -(exists t ( has(a, t) & has(b, t) ))
 
         % ...then....
         ->

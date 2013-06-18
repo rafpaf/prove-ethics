@@ -3,11 +3,14 @@ formulas(assumptions).
     % Trivially, any thing that's an idea of something is an idea.
     all i all o ( is_idea_of(i,o) -> is_idea(i) ).
 
+    % Ideas = concepts
+    all i all x ( is_idea_of(i,x) <-> is_concept_of(i,x) ).
+
     % Each dependency relation is a "connection" in a graph.
     all x all y ( depends_on(x,y) -> exists c ( connects(c,y,x) ) ).
 
     % Each causal relation is a "connection".
-    all x all y ( cause(x,y) -> exists c ( connects(c,x,y) ) ).
+    all x all y ( causes(x,y) -> exists c ( connects(c,x,y) ) ).
 
     % Whatever we end up talking about is a "thing".
     all x is_thing(x).
@@ -120,6 +123,10 @@ formulas(assumptions).
                 )
             )
         )
+    ).
+
+    all a all b (
+        causes(a, b) -> is_understood_through(b, a)
     ).
 
 end_of_list.
