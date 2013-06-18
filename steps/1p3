@@ -22,12 +22,15 @@ formulas(assumptions).
         (
 
             neither_is_understood_through_the_other(a, b)
-            & neither_is_the_cause_of_the_other(a, b)
+            & neither_causes_the_other(a, b)
 
         )
 
     ).
 
 end_of_list.
+
+% Note that "they cannot be understood through one another" must mean "neither
+% can be understood through one another"
 
 % vim:ft=prover9
