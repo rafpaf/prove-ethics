@@ -4,7 +4,7 @@ formulas(assumptions).
     all s all a (
         ( is_substance(s) & is_mode_of(a, s) )
         ->
-        exists_in(a, s)
+        is_prior_in_nature_to(a, s)
     ).
 
     % Noticed while doing this: This proposition is ambiguous between "a
