@@ -1,0 +1,18 @@
+% 1a1: Whatever is, is either in itself
+% or in another.
+
+formulas(assumptions).
+
+    all a ( is(a) -> ( is_in(a, a) | ( exists b ( is_in(a, b) ) ) ) ).
+
+end_of_list.
+
+% Note: the "exists" of predicate logic is not the "is" of Spinoza's
+% philosophy. I am having trouble explaining how I use prover9's "exists",
+% then. This could be a sign that Spinoza's philosophy is ultimately not
+% translatable into a contemporary predicate logic, which has too many
+% contemporary assumptions built into it. Perhaps what could be said in defense
+% of this project is that it will make plainer---in the things that couldn't be
+% captured--exactly where Spinoza departs from today's "common sense".
+
+% vim:ft=prover9
