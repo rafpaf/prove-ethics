@@ -75,6 +75,17 @@ formulas(assumptions).
 
     all x all y ( is_mode_of(x,y) <-> is_mode(x) ).
 
+    all x all y (
+        is_conceived_through(a, b)
+        ->
+        exists ca exists cb
+        (
+            is_concept_of(ca, a) &
+            is_concept_of(cb, b) &
+            involves(cb, ca)
+        )
+    ).
+
 end_of_list.
 
 % vim:ft=prover9
