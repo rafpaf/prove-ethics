@@ -3,12 +3,14 @@ formulas(assumptions).
     % 1def5: By mode I understand the affections of a substance, or that which
     % is in another through which it is also conceived.
 
-    all m (
+    all m all s (
         is_mode(m) <-> (
-            exists s ( is_substance(s) ) &
-            is_affection_of(m) &
-            exists_in(m, s) &
-            is_conceived_through(m, s)
+            exists s (
+                is_substance(s) &
+                is_affection_of(m, s) &
+                exists_in(m, s) &
+                is_conceived_through(m, s)
+            )
         )
     ).
 
