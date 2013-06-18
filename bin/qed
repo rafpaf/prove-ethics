@@ -14,7 +14,15 @@ cat arguments | while read arg; do
         demonstrate ${arg:1} \
         && ( echo_color 42 " works " && echo -n "   " ) \
         || ( echo_color 45 " fails " && echo -n "   " )
-        echo -n ${arg:1}
+        echo -n `echo ${arg:1} | sed "s/from/<-/"`
+        echo
+    fi
+
+    if [[ $first_letter = "-" ]]; then
+        demonstrate ${arg:1} \
+        && ( echo_color 41 " works " && echo -n "   " ) \
+        || ( echo_color 46 " fails " && echo -n "   " )
+        echo -n `echo ${arg:1} | sed "s/from/<-/"`
         echo
     fi
 done

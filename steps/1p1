@@ -11,6 +11,9 @@ formulas(assumptions).
     % substance is prior in nature to all of its affections taken together" and
     % "a substance is prior in nature to each of its affections."
 
+    % Noticed while doing this: It's not clear why 1def3 is needed in the
+    % demonstration.
+
 end_of_list.
 
 % vim:ft=prover9
