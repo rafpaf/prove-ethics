@@ -18,13 +18,6 @@ formulas(assumptions).
     % There is at least one idea.
     exists x is_idea(x).
 
-    % Self explanation
-    all x ( self_explanatory(x) <-> (all y ( conceived_through(x,y) -> y=x) ) ).
-
-    % Part of the definition of substance
-    % Substances are conceived through themselves alone.
-    all x (substance(x) -> self_explanatory(x)).
-
     %% Conception and causation
     all x all y ( conceived_through(x,y) <-> causes(y,x) ).
 
@@ -34,20 +27,12 @@ formulas(assumptions).
         <-> all e ( is_essence_of(e,x) -> involves(e,F) )
     ).
 
-    %% Definition of causa sui
-    all x all F (
-        causes(x,x) <-> involves_essentially(x,existence)
-    ).
-
     % We need either this or 'everything has a cause'
     % Everything is conceived through something.
     all x (exists y conceived_through(x,y)).
 
     % Everything has a cause.
     all x (exists y causes(y,x)).
-
-    % Part of the definition of God
-    substance(God).
 
     % Relationship between conceivability and necessity.
     all x all F ( -conceivably_has(x,F) <-> necessarily_lacks(x,F) ).
