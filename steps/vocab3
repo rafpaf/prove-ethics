@@ -1,0 +1,14 @@
+formulas(assumptions).
+
+    all a all b (
+        neither_is_the_cause_of_the_other(a, b)
+        <->
+        (
+            -causes(a, b)
+            & -causes(b, a)
+        )
+    ).
+
+end_of_list.
+
+% vim:ft=prover9

@@ -1,0 +1,25 @@
+% 1p2: Two substances having different attributes have nothing in common with
+% one another.
+%
+% Dem.: This also evident from 1def3. For each must be in itself and be
+% conceived through itself, or the concept of the one does not involve the
+% concept of the other.
+
+formulas(assumptions).
+
+    all s1 all s2 (
+
+        % If there are two substances...
+        ( is_substance(s1) & is_substance(s2) & -(s1=s2) )
+
+        % ...then...
+        ->
+
+        % ...there is no attribute they have in common.
+        -( exists a ( is_attribute_of(a, s1) && is_attribute_of(a, s2) ) )
+
+    ).
+
+end_of_list.
+
+% vim:ft=prover9

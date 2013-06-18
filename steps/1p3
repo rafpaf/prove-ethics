@@ -1,0 +1,33 @@
+% 1p3: If things have nothing in common with one
+% another, one of them cannot be the cause of the
+% other.
+%
+% Dem.: If they have nothing in common with one
+% another, then (by 1a5) they cannot be understood
+% through one another, and so (by 1a4) one cannot be
+% the cause of the other, q.e.d.
+
+% Used in 1p6
+
+formulas(assumptions).
+
+    all a all b (
+
+        % If there is no thing that two things have in common, ...
+        -exists t ( has(a, t) & has(b, t) )
+
+        % ...then...
+        ->
+
+        (
+
+            neither_is_understood_through_the_other(a, b)
+            & neither_is_the_cause_of_the_other(a, b)
+
+        )
+
+    ).
+
+end_of_list.
+
+% vim:ft=prover9
