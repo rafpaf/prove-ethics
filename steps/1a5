@@ -1,0 +1,28 @@
+% 1a5: Things that have nothing in common with one another also cannot be
+% understood through one another, or the concept of the one does not involve
+% the concept of the other.
+
+formulas(assumptions).
+
+    all a all b (
+        % If two things have nothing in common with one another...
+        -exists t ( has(a, t) & has(b, t) )
+
+        % ...then....
+        ->
+
+        (
+            neither_is_understood_through_the_other(a, b)
+            & the_concept_of_the_one_does_not_involve_the_concept_of_the_other(a, b)
+        )
+    ).
+
+end_of_list.
+
+% Note that this claim---"Things have have nothing in common with one
+% another..."---is a generic, which I am interpreting as two universal
+% quantifiers.
+
+% I take "cannot" to mean "ipso facto not".
+
+% vim:ft=prover9
