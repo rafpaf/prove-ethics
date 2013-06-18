@@ -1,0 +1,55 @@
+#!/bin/bash
+#set -x
+
+# Check all the arguments specified in the 'arguments' file. Well, actually,
+# check only the lines in that file that begin with '+'. That way you can put
+# arguments in there that you're not ready to check.
+
+function echo_color() {
+    echo -ne "\033[01;$1m$2\033[00m"
+}
+
+powerset() { [ $# -eq 0 ] && echo || (shift; powerset "$@") |
+            while read r ; do echo -e "$1 $r\n$r"; done }
+
+test_shorter_paths() {
+    conclusion=`echo $@ | sed "s/ from .*$//"`
+    premises=`echo $@ | sed "s/^.* from //"`
+    powerset $premises | while read subset; do
+
+        # Only use proper subsets.
+        if [[ $subset -eq $premises ]]; then continue; fi
+
+        # Attempt to establish the same conclusion using fewer premises.
+        demonstrate $conclusion from $subset
+
+        # It's not supposed to work. If it 
+        if [[ $? = 0 ]]; then
+            echo_color 41 " works!"
+        else
+            echo_color 46 " fails "
+        fi
+        echo "   $conclusion <- $subset"
+    done
+}
+
+cat demonstrations | while read arg; do
+    first_letter=${arg:0:1}
+    d=${arg:1}
+    if [[ $first_letter = "+" ]]; then
+        demonstrate $d
+        if [[ $? = 0 ]]; then
+            echo_color 42 " works "
+            echo -n "   "
+            echo -n `echo $d | sed "s/from/<-/"`
+            echo
+            test_shorter_paths $d
+        else
+            echo_color 45 " fails "
+            echo -n "   "
+            echo -n `echo $d | sed "s/from/<-/"`
+            echo
+        fi
+    fi
+
+done
