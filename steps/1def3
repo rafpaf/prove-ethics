@@ -25,6 +25,11 @@ formulas(assumptions).
         )
     ).
 
+    % The definition seems to be used in this way too.
+    all s (
+        is_substance(s) <-> ( is_in(s,s) )
+    ).
+
     % TODO: Because this is a real definition, it states not only the
     % biconditional, but also that the biconditional makes plain the essence of
     % the thing. I'm not sure how to write that in prover9.

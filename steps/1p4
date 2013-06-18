@@ -26,16 +26,21 @@ formulas(assumptions).
     %     )
     % ).
 
-    all a all b (
-        ( -(a=b) ) ->
-        exists c (
-            ( is_attribute_of(c, a) & -is_attribute_of(c, b) )
-            |
-            ( is_attribute_of(c, b) & -is_attribute_of(c, a) )
-            |
-            ( is_affection_of(c, a) & -is_affection_of(c, b) )
-            |
-            ( is_affection_of(c, b) & -is_affection_of(c, a) )
+    all x all y (
+        (
+            -(x=y)
+        )
+        ->
+        (
+            exists a (
+                ( is_attribute_of(a, x) & -is_attribute_of(a, y) )
+                |
+                ( -is_attribute_of(a, x) & is_attribute_of(a, y) )
+                |
+                ( is_affection_of(a, x) & -is_affection_of(a, y) )
+                |
+                ( -is_affection_of(a, x) & is_affection_of(a, y) )
+            )
         )
     ).
 

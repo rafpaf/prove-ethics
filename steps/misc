@@ -49,7 +49,8 @@ formulas(assumptions).
     all x all y ( is_conceived_through(y, x) -> is_prior_in_nature_to(x, y) ).
     all x all y ( is_in(y, x) -> is_prior_in_nature_to(x, y) ).
 
-    all x all y ( is_affection_of(x,y) -> ( is_affection(x) & has(y, x) ) ).
+    all x all y ( is_affection_of(a,s) -> ( is_affection(a) & has(s, a) ) ).
+    all x all y ( is_attribute_of(a,s) -> ( is_attribute(a) & has(s, a) ) ).
 
     all x all y ( is_mode_of(x,y) <-> is_affection_of(x,y) ).
 
@@ -112,6 +113,14 @@ formulas(assumptions).
     all a all b (
         -(a=b) -> exists c ( are_distinguished_by(a, b, c) & ( has(a, c) | has(b, c) ) )
     ).
+
+    % This is to bring everything under the scope of 1a1
+    all x ( is(x) ).
+
+    % Controversial but I think it's needed for 1p4. Talk of attributes is just
+    % a way of talking about how a substance is conceived and it can be
+    % regimented out.
+    all a ( is_attribute(a) <-> is_substance(a) ).
 
     % Noticed: Spinoza assumes that two distinct things cannot be individuated
     % by something that neither of them has, e.g., the attribute or affection
