@@ -8,6 +8,11 @@ function echo_color() {
     echo -ne "\033[01;$1m$2\033[00m"
 }
 
+powerset() { [ $# -eq 0 ] && echo || (shift; powerset "$@") |
+            while read r ; do echo -e "$1 $r\n$r"; done }
+
+powerset 1 2 3
+
 cat demonstrations | while read arg; do
     first_letter=${arg:0:1}
     if [[ $first_letter = "+" ]]; then
