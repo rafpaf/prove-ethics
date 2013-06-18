@@ -12,17 +12,30 @@
 formulas(assumptions).
 
     % For simplicity, I will just stick to two things.
-    all a all b all c (
-        distinguished_by(a, b, c)
-        ->
-        (
-            (
-                is_a_difference_in_attributes(c, a, b)
-                & is_substance(a)
-                & is_substance(b)
-            )
+    % all a all b all c (
+    %     distinguished_by(a, b, c)
+    %     ->
+    %     (
+    %         (
+    %             is_a_difference_in_attributes(c, a, b)
+    %             & is_substance(a)
+    %             & is_substance(b)
+    %         )
+    %         |
+    %         is_a_difference_in_affections(c, a, b)
+    %     )
+    % ).
+
+    all a all b (
+        ( -(a=b) ) ->
+        exists c (
+            ( is_attribute_of(c, a) & -is_attribute_of(c, b) )
             |
-            is_a_difference_in_affections(c, a, b)
+            ( is_attribute_of(c, b) & -is_attribute_of(c, a) )
+            |
+            ( is_affection_of(c, a) & -is_affection_of(c, b) )
+            |
+            ( is_affection_of(c, b) & -is_affection_of(c, a) )
         )
     ).
 

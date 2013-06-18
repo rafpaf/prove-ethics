@@ -16,7 +16,7 @@ formulas(assumptions).
         is_mode_of(m, s)
         <->
         (
-            exists_in(m, s) &
+            is_in(m, s) &
             is_conceived_through(m, s)
         )
     ).

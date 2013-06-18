@@ -6,7 +6,7 @@ formulas(assumptions).
 
     all s (
         is_substance(s) <-> (
-            exists_in(s,s)
+            is_in(s,s)
             &
             is_conceived_through(s,s)
             % &

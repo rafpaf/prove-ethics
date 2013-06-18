@@ -18,9 +18,6 @@ formulas(assumptions).
     % There is at least one idea.
     exists x is_idea(x).
 
-    %% Conception and causation
-    all x all y ( conceived_through(x,y) <-> causes(y,x) ).
-
     % Definition of essential involvement
     all x all F (
         involves_essentially(x,F)
@@ -112,30 +109,6 @@ formulas(assumptions).
 
     all a all b (
         causes(a, b) -> is_understood_through(b, a)
-    ).
-
-    all a all b all c (
-        is_a_difference_in_attributes(c, a, b)
-        ->
-        (
-            exists a (
-                ( is_attribute_of(a) & -is_attribute_of(b) )
-                |
-                ( is_attribute_of(b) & -is_attribute_of(a) )
-            )
-        )
-    ).
-
-    all a all b all c (
-        is_a_difference_in_affections(c, a, b)
-        ->
-        (
-            exists a (
-                ( is_affection_of(a) & -is_affection_of(b) )
-                |
-                ( is_affection_of(b) & -is_affection_of(a) )
-            )
-        )
     ).
 
 end_of_list.
