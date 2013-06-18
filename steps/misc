@@ -104,6 +104,24 @@ formulas(assumptions).
         )
     ).
 
+    all a all b (
+        the_concept_of_the_one_does_not_involve_the_concept_of_the_other(a, b)
+        <->
+        (
+            all ca all cb (
+                (
+                    is_concept_of(ca, a)
+                    & is_concept_of(cb, b)
+                )
+                ->
+                (
+                    -involves(ca, cb)
+                    & -involves(cb, ca)
+                )
+            )
+        )
+    ).
+
 end_of_list.
 
 % vim:ft=prover9
