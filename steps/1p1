@@ -4,7 +4,7 @@ formulas(assumptions).
     all s all a (
         ( is_substance(s) & is_affection(a) & is_affection_of(a,s) )
         ->
-        is_prior_in_nature_to(a, s)
+        is_prior_in_nature_to(s, a)
     )
 
     % Noticed while doing this: This proposition is ambiguous between "a
