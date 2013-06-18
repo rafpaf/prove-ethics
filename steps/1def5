@@ -7,10 +7,17 @@ formulas(assumptions).
         is_mode(m) -> (
             exists s (
                 is_substance(s) &
-                is_affection_of(m, s) &
-                exists_in(m, s) &
-                is_conceived_through(m, s)
+                is_mode_of(m, s)
             )
+        )
+    ).
+
+    all m all s (
+        is_mode_of(m, s)
+        <->
+        (
+            exists_in(m, s) &
+            is_conceived_through(m, s)
         )
     ).
 
