@@ -5,7 +5,7 @@ formulas(assumptions).
     % another thing, from which it must be formed.
 
     all s (
-        is_substance(s) -> (
+        is_substance(s) <-> (
             exists_in(s,s)
             &
             is_conceived_through(s,s)
