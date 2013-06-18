@@ -1,0 +1,19 @@
+formulas(assumptions).
+
+    % 1def5: By mode I understand the affections of a substance, or that which
+    % is in another through which it is also conceived.
+
+    all m (
+        is_mode(m) <-> (
+            exists s ( is_substance(s) ) &
+            is_affection_of(m) &
+            exists_in(m, s) &
+            is_conceived_through(m, s)
+        )
+    ).
+
+    % TODO: Haven't encoded the "I understand" bit.
+
+end_of_list.
+
+% vim:ft=prover9

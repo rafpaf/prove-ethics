@@ -1,0 +1,36 @@
+formulas(assumptions).
+
+    % 1def3: By substance I understand what is in itself and is conceived
+    % through itself, i.e., that whose concept does not require the concept of
+    % another thing, from which it must be formed.
+
+    all s (
+        is_substance(s) -> (
+            exists_in(s,s)
+            &
+            is_conceived_through(s,s)
+            &
+            % It's not the case that...
+            -(
+                exists sc exists t exists tc (
+                % ...any concept of the substance...
+                is_concept_of(tc,c) &
+                % ...requires any concept...
+                requires(sc,tc) &
+                is_concept_of(sc,s) &
+                % ...of a distinct thing.
+                -(s=t)
+                )
+            )
+        )
+    ).
+
+    % TODO: Because this is a real definition, it states not only the
+    % biconditional, but also that the biconditional makes plain the essence of
+    % the thing. I'm not sure how to write that in prover9.
+
+    % TODO: Haven't encoded the "I understand" bit.
+
+end_of_list.
+
+% vim:ft=prover9

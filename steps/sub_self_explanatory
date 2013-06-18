@@ -1,0 +1,9 @@
+formulas(assumptions).
+
+    all s ( is_substance(s) -> is_conceived_through(s,s) ).
+
+    % all s ( is_substance(x) -> exists_in(s,s) ).
+
+end_of_list.
+
+% vim:ft=prover9

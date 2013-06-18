@@ -1,0 +1,16 @@
+formulas(assumptions).
+
+    % 1p1: A substance is prior in nature to its affections.
+    all s all a (
+        ( is_substance(s) & is_affection(a) & is_affection_of(a,s) )
+        ->
+        is_prior_in_nature_to(a, s)
+    )
+
+    % Noticed while doing this: This proposition is ambiguous between "a
+    % substance is prior in nature to all of its affections taken together" and
+    % "a substance is prior in nature to each of its affections."
+
+end_of_list.
+
+% vim:ft=prover9
