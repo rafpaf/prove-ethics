@@ -1,0 +1,22 @@
+% 1p6: One substance cannot be produced
+% by another substance.
+% 
+% Dem.: In nature there cannot be two
+% substances of the same attribute (by
+% 1p5), i.e. (by 1p2), which have
+% something in common with each other.
+% Therefore (by 1p3) one cannot be the
+% cause of the other, or cannot be
+% produced by the other, q.e.d.
+
+formulas(assumptions).
+
+    all s (
+        is_substance(s)
+        ->
+        -( exists s2 ( -(s=s2) & produces(s2, s) ) )
+    ).
+
+end_of_list.
+
+% vim:ft=prover9
