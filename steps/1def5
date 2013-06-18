@@ -4,7 +4,7 @@ formulas(assumptions).
     % is in another through which it is also conceived.
 
     all m (
-        is_mode(m) <-> (
+        is_mode(m) -> (
             exists s (
                 is_substance(s) &
                 is_affection_of(m, s) &

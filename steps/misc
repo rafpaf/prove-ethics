@@ -67,6 +67,14 @@ formulas(assumptions).
     % will do)
     all x all y ( exists_in(y, x) -> is_prior_in_nature_to(x, y) ).
 
+    all x all y ( is_affection_of(x,y) -> is_affection(x) ).
+
+    all x all y ( is_mode_of(x,y) <-> is_affection_of(x,y) ).
+
+    all x ( is_mode(x) <-> is_affection(x) ).
+
+    all x all y ( is_mode_of(x,y) <-> is_mode(x) ).
+
 end_of_list.
 
 % vim:ft=prover9

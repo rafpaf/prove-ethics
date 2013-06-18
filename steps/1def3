@@ -9,19 +9,19 @@ formulas(assumptions).
             exists_in(s,s)
             &
             is_conceived_through(s,s)
-            &
-            % It's not the case that...
-            -(
-                exists sc exists t exists tc (
-                % ...any concept of the substance...
-                is_concept_of(tc,c) &
-                % ...requires any concept...
-                requires(sc,tc) &
-                is_concept_of(sc,s) &
-                % ...of a distinct thing.
-                -(s=t)
-                )
-            )
+            % &
+            % % It's not the case that...
+            % -(
+            %     exists sc exists t exists tc (
+            %     % ...any concept of the substance...
+            %     is_concept_of(tc,c) &
+            %     % ...requires any concept...
+            %     requires(sc,tc) &
+            %     is_concept_of(sc,s) &
+            %     % ...of a distinct thing.
+            %     -(s=t)
+            %     )
+            % )
         )
     ).
 
