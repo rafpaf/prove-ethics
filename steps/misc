@@ -111,6 +111,14 @@ formulas(assumptions).
         causes(a, b) -> is_understood_through(b, a)
     ).
 
+    all a all b (
+        -(a=b) -> exists c ( are_distinguished_by(a, b, c) & ( has(a, c) | has(b, c) ) )
+    ).
+
+    % Noticed: Spinoza assumes that two distinct things cannot be individuated
+    % by something that neither of them has, e.g., the attribute or affection
+    % of a third substance.
+
 end_of_list.
 
 % vim:ft=prover9
