@@ -3,16 +3,16 @@
 
 formulas(assumptions).
 
-    % Two ideas are connected
+    % Two ideas are connected (implicitly: by a relation of dependence)
     (
         exists i exists j
         (
             is_idea(i) &
             is_idea(j) &
-            depends_on(i, j) % should be connected_to but let's try this
+            depends_on(j, i) 
         )
     )
-    % ...if and only if two things are connected
+    % ...if and only if two things are connected (implicitly: by a causal relation)
     <->
     (
         exists t exists u (

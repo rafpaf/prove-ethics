@@ -7,17 +7,6 @@ formulas(assumptions).
     % Ideas = concepts
     all i all x ( is_idea_of(i,x) <-> is_concept_of(i,x) ).
 
-    % Each dependency relation is a "connection" in a graph.
-    %all x all y ( depends_on(x,y) <-> is_connected_to(x,y) ).
-    %all x all y ( depends_on(x,y) <-> is_connected_to(y,x) ). % perhaps?
-    %all x all y ( involves(x,y) <-> is_connected_to(x,y) ).
-    %all x all y ( involves(x,y) <-> is_connected_to(y,x) ). % perhaps?
-    %all x all y ( causes(x,y) <-> is_connected_to(x,y) ).
-    %all x all y ( causes(x,y) <-> depends_on(y,x) ). % perhaps?
-
-    all x all y ( is_connected_to(x,y) -> causes(x,y) ). % might make 2p7 work
-
-    %all x all y ( is_connected_to(x,y) -> ( causes(x,y) | depends_on(x,y) | involves(x,y) ) ). % needed for 2p7?
 
     % Whatever we end up talking about is a "thing".
     all x is_thing(x).
@@ -156,13 +145,24 @@ formulas(assumptions).
         causes(a, b) <-> is_in(b, a)
     ).
 
-    % Noticed: Spinoza assumes that two distinct things cannot be individuated
-    % by something that neither of them has, e.g., the attribute or affection
-    % of a third substance.
-
-    % Noticed: Spinoza assumes that things can't exist in themselves *and*
-    % something else.
+    % If we write 2p7 in a way that involves the idea of a "connection", then we might need these.
+    % Each dependency relation is a "connection" in a graph.
+    %all x all y ( depends_on(x,y) <-> is_connected_to(x,y) ).
+    %all x all y ( depends_on(x,y) <-> is_connected_to(y,x) ). % perhaps?
+    %all x all y ( involves(x,y) <-> is_connected_to(x,y) ).
+    %all x all y ( involves(x,y) <-> is_connected_to(y,x) ). % perhaps?
+    %all x all y ( causes(x,y) <-> is_connected_to(x,y) ).
+    %all x all y ( causes(x,y) <-> depends_on(y,x) ). % perhaps?
+    %all x all y ( is_connected_to(x,y) -> causes(x,y) ). % might make 2p7 work
+    %all x all y ( is_connected_to(x,y) -> ( causes(x,y) | depends_on(x,y) | involves(x,y) ) ). % needed for 2p7?
 
 end_of_list.
+
+% Noticed: Spinoza assumes that two distinct things cannot be individuated
+% by something that neither of them has, e.g., the attribute or affection
+% of a third substance.
+
+% Noticed: Spinoza assumes that things can't exist in themselves *and*
+% something else.
 
 % vim:ft=prover9
