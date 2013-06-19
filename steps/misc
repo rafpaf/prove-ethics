@@ -166,8 +166,6 @@ formulas(assumptions).
     all x ( necessarily_exists(x) <-> ( all e ( is_existence(e) -> necessarily_has(x, e) ) ) ).
 
     % Needed for 1p11
-    all s ( is_god(s) -> is_substance(s) ).
-    all s ( is_substance(s) -> pertains_to_its_nature_to_exist(s) ).
     all s ( pertains_to_its_nature_to_exist(s) -> essence_involves_existence(s) ).
     all s ( is_substance(s) -> necessarily_exists(s) ). % test
     all s ( conceivably_does_not_exist(s) -> -essence_involves_existence(s) ).
