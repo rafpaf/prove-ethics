@@ -1,0 +1,34 @@
+% 1p5: In nature there cannot be two or more substances of the same
+% nature or attribute.
+% 
+% Dem.: If there were two or more distinct substances, they would have
+% to be distinguished from one another either by a difference in their
+% attributes, or by a difference in their affections (by 1p4). If only
+% by a difference in their attributes, then it will be conceded that
+% there is only one of the same attribute. But if by a difference in
+% their affections, then since a substance is prior in nature to its
+% affections (by 1p1), if the affections are put to one side and [the
+% substance] is considered in itself, i.e. (by 1def3 and 1a6),
+% considered truly, one cannot be conceived to be distinguished from
+% another, i.e. (by 1p4), there cannot be many, but only one [of the
+% same nature or attribute], q.e.d.
+
+formulas(assumptions).
+
+    % Paraphrase: no two substances share any attributes.
+    all s all t all a (
+        % For any two things s and t, and any attribute a, it is not
+        % the case that s and t are distinct substances and a is an
+        % attribute of both.
+        -(
+            is_substance(s) &
+            is_substance(t) &
+            -(s=t) &
+            is_attribute_of(a, s) &
+            is_attribute_of(a, t)
+        )
+    ).
+
+end_of_list.
+
+% vim:ft=prover9
