@@ -2,7 +2,7 @@ formulas(assumptions).
 
     % Definition of causa sui
     all x (
-        causes(x,x) <-> involves_essentially(x, existence)
+        causes(x,x) <-> essence_involves_existence(x)
     ).
 
 end_of_list.

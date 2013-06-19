@@ -162,6 +162,8 @@ formulas(assumptions).
     %all x all y ( is_connected_to(x,y) -> causes(x,y) ). % might make 2p7 work
     %all x all y ( is_connected_to(x,y) -> ( causes(x,y) | depends_on(x,y) | involves(x,y) ) ). % needed for 2p7?
 
+    all s ( pertains_to_its_nature_to_exist(s) <-> essence_involves_existence(s) ).
+
 end_of_list.
 
 % Noticed: Spinoza assumes that two distinct things cannot be individuated
