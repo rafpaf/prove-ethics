@@ -17,9 +17,7 @@ formulas(assumptions).
 
     % Paraphrase: no two substances share any attributes.
     all s all t all a (
-        % For any two things s and t, and any attribute a, it is not
-        % the case that s and t are distinct substances and a is an
-        % attribute of both.
+        % There is no attribute that belongs to two distinct substances.
         -(
             is_substance(s) &
             is_substance(t) &

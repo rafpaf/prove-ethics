@@ -1,22 +1,29 @@
 formulas(assumptions).
 
-    % Trivially, any thing that's an idea of something is an idea.
+    % Trivially, anything that's an idea of something is an idea.
     all i all o ( is_idea_of(i,o) -> is_idea(i) ).
+    all i all o ( is_cognition_of(i,o) <-> is_idea_of(i,o) ).
 
     % Ideas = concepts
     all i all x ( is_idea_of(i,x) <-> is_concept_of(i,x) ).
 
     % Each dependency relation is a "connection" in a graph.
-    all x all y ( depends_on(x,y) -> exists c ( connects(c,y,x) ) ).
+    %all x all y ( depends_on(x,y) <-> is_connected_to(x,y) ).
+    %all x all y ( depends_on(x,y) <-> is_connected_to(y,x) ). % perhaps?
+    %all x all y ( involves(x,y) <-> is_connected_to(x,y) ).
+    %all x all y ( involves(x,y) <-> is_connected_to(y,x) ). % perhaps?
+    %all x all y ( causes(x,y) <-> is_connected_to(x,y) ).
+    %all x all y ( causes(x,y) <-> depends_on(y,x) ). % perhaps?
 
-    % Each causal relation is a "connection".
-    all x all y ( causes(x,y) -> exists c ( connects(c,x,y) ) ).
+    all x all y ( is_connected_to(x,y) -> causes(x,y) ). % might make 2p7 work
+
+    %all x all y ( is_connected_to(x,y) -> ( causes(x,y) | depends_on(x,y) | involves(x,y) ) ). % needed for 2p7?
 
     % Whatever we end up talking about is a "thing".
     all x is_thing(x).
 
-    % There is at least one idea.
-    exists x is_idea(x).
+    % There is an idea of each thing. (Needed for 2p7)
+    all t ( exists i ( is_idea_of(i, t) ) ).
 
     % Definition of essential involvement
     all x all F (

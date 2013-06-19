@@ -3,12 +3,17 @@ formulas(assumptions).
     % 1a4
     all e all c (
         % if c causes e...
-        causes(c,e) ->
+        causes(c, e) ->
         % ...then...
-        all ic all ie (
-            % ...the idea of e depends on and involves the idea of c
-            ( is_idea_of(ic,c) & is_idea_of(ie,e) ) ->
-            ( depends_on(ie,ic) & involves(ie,ic) )
+        (
+            % ...there is a cognition of the effect that depends on and
+            % involves the cognition of its cause.
+            exists cog_e exists cog_c (
+                is_cognition_of(cog_e, e) &
+                is_cognition_of(cog_c, c) &
+                depends_on(cog_e, cog_c) &
+                involves(cog_e, cog_c)
+            )
         )
     ).
 

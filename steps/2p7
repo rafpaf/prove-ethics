@@ -1,29 +1,28 @@
+% 2p7: The order and connection of ideas is the same as the order and
+% connection of things.
+
 formulas(assumptions).
 
-    % 2p7
-    % The order and connection of ideas is the same as the order and
-    % connection of things.
-    all connection ( 
-        % There are two connected ideas...
+    % Two ideas are connected
+    (
+        exists i exists j
         (
-            exists i exists j
-            (
-                is_idea(i) &
-                is_idea(j) &
-                connects(connection, i, j)
-            )
+            is_idea(i) &
+            is_idea(j) &
+            depends_on(i, j) % should be connected_to but let's try this
         )
-        % ...if and only if there are two connected things
-        <->
-        ( 
-            exists connection2
-            exists t exists u (
-                is_thing(t) & is_thing(u)
-                & connects(connection2,t,u)
-            )
+    )
+    % ...if and only if two things are connected
+    <->
+    (
+        exists t exists u (
+            causes(t, u)
         )
     ).
 
 end_of_list.
+
+% Noticed: this seems to require that causation, dependence and involvement are
+% the only ways of being connected.
 
 % vim: set filetype=prover9 :
