@@ -18,7 +18,7 @@ test_shorter_paths() {
     powerset $premises | while read subset; do
 
         # Only use proper subsets.
-        if [[ $subset -eq $premises ]]; then continue; fi
+        if [[ $subset = $premises ]]; then continue; fi
 
         # Attempt to establish the same conclusion using fewer premises.
         demonstrate $conclusion from $subset
