@@ -8,11 +8,7 @@
 formulas(assumptions).
 
     % Treating existence like a predicate.
-    all g all x (
-        ( is_God(g) & is_existence(x) )
-        ->
-        ( necessarily_has(g,x) )
-    ).
+    all g ( is_god(g) -> necessarily_exists(g) ).
 
 end_of_list.
 
