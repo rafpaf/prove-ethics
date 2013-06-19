@@ -145,6 +145,10 @@ formulas(assumptions).
         )
     ).
 
+    all a all b (
+        causes(a, b) <-> is_in(b, a)
+    ).
+
     % Noticed: Spinoza assumes that two distinct things cannot be individuated
     % by something that neither of them has, e.g., the attribute or affection
     % of a third substance.
