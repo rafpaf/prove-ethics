@@ -164,6 +164,12 @@ formulas(assumptions).
 
     all s ( pertains_to_its_nature_to_exist(s) <-> essence_involves_existence(s) ).
 
+    all s (
+        conceivably_lacks_existence(s)
+        <->
+        ( all e ( is_existence(e) -> conceivably_lacks(s,e) ) )
+    ).
+
 end_of_list.
 
 % Noticed: Spinoza assumes that two distinct things cannot be individuated
