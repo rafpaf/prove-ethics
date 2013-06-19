@@ -6,9 +6,15 @@ formulas(assumptions).
 
     all s (
         is_substance(s) <-> (
-            is_in(s,s)
-            &
-            is_conceived_through(s,s)
+            % s is the only thing it is in
+            all t ( is_in(s,t) <-> (s=t) )
+        )
+    ).
+
+    all s (
+        is_substance(s) <-> (
+            (
+                all t ( is_conceived_through(s,t) <-> (s=t) )
             % &
             % % It's not the case that...
             % -(
@@ -22,13 +28,14 @@ formulas(assumptions).
             %     -(s=t)
             %     )
             % )
+            )
         )
     ).
 
     % The definition seems to be used in this way too.
-    all s (
-        is_substance(s) <-> ( is_in(s,s) )
-    ).
+    %all s (
+    %    is_substance(s) <-> is_in(s,s)
+    %).
 
     % TODO: Because this is a real definition, it states not only the
     % biconditional, but also that the biconditional makes plain the essence of
