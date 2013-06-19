@@ -51,5 +51,4 @@ cat demonstrations | while read arg; do
             echo
         fi
     fi
-
 done
