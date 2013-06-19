@@ -128,9 +128,29 @@ formulas(assumptions).
         causes(producer, product)
     ).
 
+    all a (
+        is_only_in_itself(a)
+        <->
+        (
+            all b ( is_in(a,b) -> (b=a) )
+        )
+    ).
+
+    all a (
+        is_only_in_another(a)
+        % better: is only in exactly one, distinct, thing
+        <->
+        (
+            exists b ( -(b=a) & is_in(a,b) )
+        )
+    ).
+
     % Noticed: Spinoza assumes that two distinct things cannot be individuated
     % by something that neither of them has, e.g., the attribute or affection
     % of a third substance.
+
+    % Noticed: Spinoza assumes that things can't exist in themselves *and*
+    % something else.
 
 end_of_list.
 

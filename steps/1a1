@@ -2,7 +2,9 @@
 
 formulas(assumptions).
 
-    all a ( is(a) -> ( is_in(a, a) | ( exists b ( is_in(a, b) ) ) ) ).
+    % Better: each thing is either only in itself or only in another.
+    % all a ( is(a) -> ( is_in(a, a) | ( exists b ( is_in(a, b) ) ) ) ).
+    all a ( is_only_in_itself(a) | is_only_in_another(a) ).
 
 end_of_list.
 
