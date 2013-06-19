@@ -23,13 +23,11 @@ test_shorter_paths() {
         # Attempt to establish the same conclusion using fewer premises.
         demonstrate $conclusion from $subset
 
-        # It's not supposed to work. If it 
+        # It's not supposed to work. If it does, yell.
         if [[ $? = 0 ]]; then
-            echo_color 41 " whoa! "
-        else
-            echo_color 46 " ok no "
+            echo_color 41 " short! "
+            echo "   $conclusion <- $subset"
         fi
-        echo "   $conclusion <- $subset"
     done
 }
 
