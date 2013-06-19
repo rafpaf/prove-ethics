@@ -107,6 +107,10 @@ formulas(assumptions).
     ).
 
     all a all b (
+        is_understood_through(a, b) <-> is_conceived_through(a, b)
+    ).
+
+    all a all b (
         -(a=b) -> exists c ( are_distinguished_by(a, b, c) & ( has(a, c) | has(b, c) ) )
     ).
 
@@ -144,6 +148,8 @@ formulas(assumptions).
     all a all b (
         causes(a, b) <-> is_in(b, a)
     ).
+
+    %all a all b ( -produces(a, b) ). % just for debugging 1p6
 
     % If we write 2p7 in a way that involves the idea of a "connection", then we might need these.
     % Each dependency relation is a "connection" in a graph.

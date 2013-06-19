@@ -13,8 +13,7 @@ formulas(assumptions).
 
     all s (
         is_substance(s) <-> (
-            (
-                all t ( is_conceived_through(s,t) <-> (s=t) )
+            all t ( is_conceived_through(s,t) <-> (s=t) )
             % &
             % % It's not the case that...
             % -(
@@ -28,7 +27,6 @@ formulas(assumptions).
             %     -(s=t)
             %     )
             % )
-            )
         )
     ).
 
