@@ -13,6 +13,10 @@ formulas(assumptions).
         -( exists s2 ( -(s=s2) & produces(s2, s) ) )
     ).
 
+    % I'm hoping that the formula above could be written like this one day:
+    % "For all s, if s is a substance, then it is not the case that there exists
+    % something s2 such that s and s2 are distinct and s2 produces s."
+
 end_of_list.
 
 % vim:ft=prover9
