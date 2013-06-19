@@ -26,6 +26,8 @@ formulas(assumptions).
     %     )
     % ).
 
+    % Paraphrase: For any distinct x and y, there is either an attribute that
+    % exactly one of them has, or an affection that exactly one of them has.
     all x all y (
         (
             -(x=y)
