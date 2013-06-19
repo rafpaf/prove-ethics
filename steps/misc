@@ -157,21 +157,9 @@ formulas(assumptions).
 
     all s ( pertains_to_its_nature_to_exist(s) <-> essence_involves_existence(s) ).
 
-    all s (
-        conceivably_lacks_existence(s)
-        <->
-        ( all e ( is_existence(e) -> conceivably_lacks(s,e) ) )
-    ).
+    all s ( -conceivably_does_not_exist(s) <-> necessarily_exists(s) ).
 
     all x ( necessarily_exists(x) <-> ( all e ( is_existence(e) -> necessarily_has(x, e) ) ) ).
-
-    % Needed for 1p11
-    all s ( conceivably_does_not_exist(s) -> -essence_involves_existence(s) ).
-    %all s ( conceivably_does_not_exist(s) <-> ( exists e ( is_existence(e) & conceivably_lacks(s,e) ) ) ).
-    %all x all F ( conceivably_lacks(x, F) <-> possibly_lacks(x, F) ).
-    %all x all F ( possibly_lacks(x, F) <-> -necessarily_has(x, F) ).
-    all s ( -conceivably_does_not_exist(s) -> necessarily_exists(s) ).
-    %all x ( necessarily_exists(x) <-> ( exists e ( is_existence(e) & necessarily_has(x, e) ) ) ).
 
 end_of_list.
 
