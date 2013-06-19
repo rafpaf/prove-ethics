@@ -1,6 +1,6 @@
 % 1p11: God, or a substance consisting of infinite attributes, each of
 % which expresses eternal and infinite essence, necessarily exists.
-% 
+%
 % Dem.: If you deny this, conceive, if you can, that God does not
 % exist.  Therefore (by 1a7) his essence does not involve existence.
 % But this (by 1p7) is absurd. Therefore God necessarily exists, q.e.d.
@@ -8,7 +8,11 @@
 formulas(assumptions).
 
     % Treating existence like a predicate.
-    all g all x ( ( is_God(g) & is_existence(x) ) -> ( necessarily_has(g,x) ) ).
+    all g all x (
+        ( is_God(g) & is_existence(x) )
+        ->
+        ( necessarily_has(g,x) )
+    ).
 
 end_of_list.
 
