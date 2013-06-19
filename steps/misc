@@ -34,13 +34,6 @@ formulas(assumptions).
     all x all F ( necessarily_lacks(x,F) <-> -possibly_has(x,F) ).
     all x all F ( conceivably_lacks(x,F) <-> -necessarily_has(x,F) ).
 
-    % What can be conceived as not existing doesn't essentially involve
-    % existence.
-    all x all F (
-        conceivably_lacks(x,existence) ->
-        -involves_essentially(x,existence)
-    ).
-
     % Seemingly at least one of these is needed for 1p1
     all x all y ( is_conceived_through(y, x) -> is_prior_in_nature_to(x, y) ).
     all x all y ( is_in(y, x) -> is_prior_in_nature_to(x, y) ).
