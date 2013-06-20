@@ -25,9 +25,9 @@ test_shorter_paths() {
 
         # It's not supposed to work. If it does, yell.
         if [[ $? = 0 ]]; then
-            echo_color 37 "  "
+            echo_color 99 "  "
             echo_color 46 " "
-            echo_color 37 " s     "
+            echo_color 99 " alt     "
             echo "$conclusion <- $subset"
         fi
     done
@@ -40,18 +40,18 @@ cat demonstrations | while read arg; do
         demonstrate $d
         if [[ $? = 0 ]]; then
             echo_color 42 " "
-            echo_color 37 " y    "
+            echo_color 99 " valid  "
             echo -n "   "
             args=`echo $d | sed "s/from/<-/"`
-            echo_color 37 "$args"
+            echo_color 99 "$args"
             echo
             test_shorter_paths $d
         else
-            echo_color 37 " "
+            echo_color 99 " "
             echo_color 45 " "
-            echo_color 37 " n      "
+            echo_color 99 " invalid  "
             args=`echo $d | sed "s/from/<-/"`
-            echo_color 37 "$args"
+            echo_color 99 "$args"
             echo
         fi
     fi

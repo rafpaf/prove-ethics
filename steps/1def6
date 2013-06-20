@@ -1,0 +1,21 @@
+% 1def6: By God I understand a being absolutely infinite, i.e., a substance
+% consisting of an infinity of attributes, of which each one expresses an
+% eternal and infinite essence.
+
+formulas(assumptions).
+
+    % God is a substance.
+    all x (
+        is_god(x) -> is_substance(x)
+    ).
+
+    % God has all the attributes.
+    all a ( is_attribute(a) -> ( all g ( is_god(g) -> is_attribute_of(a,g) ) ) ).
+
+    %all e (
+    %    all x ( is_god(x) -> is_essence_of(e, x) ) -> ( is_eternal(e) & is_infinite(e) )
+    %).
+
+end_of_list.
+
+% vim:ft=prover9

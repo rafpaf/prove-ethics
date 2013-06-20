@@ -38,8 +38,8 @@ formulas(assumptions).
     all x all y ( is_conceived_through(y, x) -> is_prior_in_nature_to(x, y) ).
     all x all y ( is_in(y, x) -> is_prior_in_nature_to(x, y) ).
 
-    all x all y ( is_affection_of(a,s) -> ( is_affection(a) & has(s, a) ) ).
-    all x all y ( is_attribute_of(a,s) -> ( is_attribute(a) & has(s, a) ) ).
+    all a all s ( is_affection_of(a,s) -> ( is_affection(a) & has(s, a) ) ).
+    all a all s ( is_attribute_of(a,s) -> ( is_attribute(a) & has(s, a) ) ).
 
     all x all y ( is_mode_of(x,y) <-> is_affection_of(x,y) ).
 
@@ -103,10 +103,6 @@ formulas(assumptions).
         is_understood_through(a, b) <-> is_conceived_through(a, b)
     ).
 
-    all a all b (
-        -(a=b) -> exists c ( are_distinguished_by(a, b, c) & ( has(a, c) | has(b, c) ) )
-    ).
-
     % This is to bring everything under the scope of 1a1
     all x ( is(x) ).
 
@@ -160,6 +156,31 @@ formulas(assumptions).
     all s ( -conceivably_does_not_exist(s) <-> necessarily_exists(s) ).
 
     all x ( necessarily_exists(x) <-> ( all e ( is_existence(e) -> necessarily_has(x, e) ) ) ).
+
+    all s all g ( ( is_god(g) & identical(s,g) ) -> is_god(s) ).
+
+    all a all b ( identical(a, b) <-> identical(b, a) ).
+
+    all g ( is_god(g) -> is_substance(g) ).
+    % Needed for 1p14. Each substance has an attribute.
+    all s ( is_substance(s) -> ( exists a ( is_attribute_of(a, s) ) ) ).
+    all s all t all a (
+        % There is no attribute that belongs to two distinct substances.
+        -(
+            is_substance(s) & is_substance(t) &
+            -identical(s,t) &
+            is_attribute_of(a, s) & is_attribute_of(a, t)
+        )
+    ).
+    % Rewriting the above.
+    all s all t all a (
+        % If an attribute belongs to two substances...
+        ( is_substance(s) & is_substance(t) & is_attribute_of(a, s) & is_attribute_of(a, t) )
+        ->
+        % ...then they are identical
+        ( identical(s, t) )
+    ).
+    all a ( is_attribute(a) -> ( all g ( is_god(g) -> is_attribute_of(a, g) ) ) ).
 
 end_of_list.
 

@@ -21,7 +21,7 @@ formulas(assumptions).
         -(
             is_substance(s) &
             is_substance(t) &
-            -(s=t) &
+            -identical(s,t) &
             is_attribute_of(a, s) &
             is_attribute_of(a, t)
         )

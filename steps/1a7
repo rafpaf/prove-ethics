@@ -1,0 +1,14 @@
+% 1a7: If a thing can be conceived as not existing, its essence does
+% not involve existence.
+
+formulas(assumptions).
+
+    all x (
+        conceivably_does_not_exist(x)
+        ->
+        -essence_involves_existence(x)
+    ).
+
+end_of_list.
+
+% vim:ft=prover9

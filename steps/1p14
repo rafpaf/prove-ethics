@@ -1,0 +1,20 @@
+% 1p14: Except God, no substance can be or be conceived.
+% 
+% Dem.: Since God is an absolutely infinite being, of whom no attribute which
+% expresses an essence of substance can be denied (by 1def6), and he
+% necessarily exists (by 1p11), if there were any substance except God, it
+% would have to be explained through some attribute of God, and so two
+% substances of the same attribute would exist, which (by 1p5) is absurd.  And
+% so except God, no substance can be or, consequently, be conceived.  For if it
+% could be conceived, it would have to be conceived as existing.  But this (by
+% the first part of this demonstration) is absurd. Therefore, except for God no
+% substance can be or be conceived, q.e.d.
+
+formulas(assumptions).
+
+    % Except God, no substance can be or be conceived.
+    all s ( is_substance(s) -> is_god(s) ).
+
+end_of_list.
+
+% vim:ft=prover9
