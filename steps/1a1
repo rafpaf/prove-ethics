@@ -4,7 +4,8 @@ formulas(assumptions).
 
     % Better: each thing is either only in itself or only in another.
     % all A ( is(A) -> ( is_in(A, A) | ( exists B ( is_in(A, B) ) ) ) ).
-    all A ( is_only_in_itself(A) | is_only_in_another(A) ).
+    %all A ( is_only_in_itself(A) | is_only_in_another(A) ).
+    all A ( is_mode(A) | is_substance(A) ).
 
 end_of_list.
 
