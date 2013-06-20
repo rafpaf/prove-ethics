@@ -22,5 +22,7 @@
   rhetoric--attempting to shape and lead
   a mind rather than rationally compel
   it.
+* if an attribute is a substance, then since each substance has an attribute,
+  attributes have attributes. (not realizing this led to infinite loops)
 * How this may be used: (1) If a shorter path exists between A and B, that is
   evidence that Spinoza wanted the path.

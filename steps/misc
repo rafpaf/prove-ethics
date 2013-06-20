@@ -156,13 +156,6 @@ formulas(assumptions).
 
     all X ( necessarily_exists(X) <-> ( all E ( is_existence(E) -> necessarily_has(X, E) ) ) ).
 
-    %exists God.
-
-    % God is a substance.
-    %is_substance(God).
-    % God has all the attributes.
-    %all A ( is_attribute(A) -> is_attribute_of(God) ).
-
     % Needed for 1p14. Each substance has an attribute.
     all S ( is_substance(S) -> ( exists A ( is_attribute_of(A, S) ) ) ).
 
@@ -175,7 +168,11 @@ formulas(assumptions).
         (S = T)
     ).
 
-    %necessarily_exists(God).
+    exists S ( is_substance(S) & -(S=God) )
+    ->
+    exists S exists T exists A (
+        -(S=T) & is_attribute_of(A,S) & is_attribute_of(A,T)
+    ).
 
 end_of_list.
 
