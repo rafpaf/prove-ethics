@@ -1,29 +1,21 @@
 % observations about the prover9 approach
 
-* each 'edge' in the graph that is the
-  order and connection of ideas runs in
-  the opposite direction from the edge
-  in the graph that is the order and
+* each 'edge' in the graph that is the order and connection of ideas runs in
+  the opposite direction from the edge in the graph that is the order and
   connection of things.
-* the definitions in part 1 all seems to
-  involve modality, or do they? they all
-  talk about what 'can be conceived'.
-  what is the meaning of this word
-  'can'?
-* if it really were an assumption that
-  causation and inherence are parallel,
-  then why would Spinoza have
-  demonstrated 1p6 in such a circuitous
-  manner?
-* !!!!! 1a7 is strictly speaking false,
-  because nothing can be conceived as
-  not existing. this supports a view of
-  Spinoza as engaged in
-  rhetoric--attempting to shape and lead
-  a mind rather than rationally compel
-  it.
+* the definitions in part 1 all seems to involve modality, or do they? they all
+  talk about what 'can be conceived'. what is the meaning of this word 'can'?
+* if it really were an assumption that causation and inherence are parallel,
+  then why would Spinoza have demonstrated 1p6 in such a circuitous manner?
+* !!!!! 1a7 is strictly speaking false, because nothing can be conceived as not
+  existing. this supports a view of Spinoza as engaged in rhetoric--attempting
+  to shape and lead a mind rather than rationally compel it.
 * if an attribute is a substance, then since each substance has an attribute,
   attributes have attributes. (not realizing this led to infinite loops at
   commit id 8e45e21d4060647c7fa672435c4991d55da71170)
+* Spinoza assumes that two distinct things cannot be individuated by something
+  that neither of them has, e.g., the attribute or affection of a third
+  substance.
+* Spinoza assumes that things can't exist in themselves *and* something else.
 * How this may be used: (1) If a shorter path exists between A and B, that is
   evidence that Spinoza wanted the path.

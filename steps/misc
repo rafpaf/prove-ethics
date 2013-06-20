@@ -108,7 +108,7 @@ formulas(assumptions).
     % Controversial but I think it's needed for 1p4. Talk of attributes is just
     % a way of talking about how a substance is conceived and it can be
     % regimented out.
-    %all A ( is_attribute(A) <-> is_substance(A) ).
+    all A ( is_attribute(A) <-> is_substance(A) ).
 
     all X all Y (
         produces(X, Y)
@@ -157,7 +157,10 @@ formulas(assumptions).
     all X ( necessarily_exists(X) <-> ( all E ( is_existence(E) -> necessarily_has(X, E) ) ) ).
 
     % Needed for 1p14. Each substance has an attribute.
-    all S ( is_substance(S) -> ( exists A ( is_attribute_of(A, S) ) ) ).
+    all S ( ( is_substance(S) & -is_attribute(S) ) -> ( exists A ( is_attribute_of(A, S) ) ) ).
+    % I've included the clause `& -is_attribute(S)`, which is strictly speaking
+    % false. If we don't include it, this line combines with the formula
+    % stating that each attribute is a substance to produce an infinite loop.
 
     % Rewriting the above.
     all S all T all A (
@@ -176,11 +179,5 @@ formulas(assumptions).
 
 end_of_list.
 
-% Noticed: Spinoza assumes that two distinct things cannot be individuated
-% by something that neither of them has, e.g., the attribute or affection
-% of a third substance.
-
-% Noticed: Spinoza assumes that things can't exist in themselves *and*
-% something else.
 
 % vim:ft=prover9
