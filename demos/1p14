@@ -34,7 +34,7 @@ all S ( is_substance(S) -> ( exists A ( is_attribute_of(A, S) ) ) ).
 (
     exists S exists T exists A
     (
-        S!=T and
+        (S!=T) and
         is_attribute_of(A,S) and
         is_attribute(A,T)
     )
