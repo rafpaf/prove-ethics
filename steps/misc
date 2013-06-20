@@ -177,6 +177,11 @@ formulas(assumptions).
         -(S=T) & is_attribute_of(A,S) & is_attribute_of(A,T)
     ).
 
+    %all X ( is_in(X,God) & -can_be_without(X,God) & -can_be_conceived_without(X,God) ).
+
+    all X all Y ( causes(X,Y) -> -can_be_without(Y,X) ).
+    all X all Y ( is_conceived_through(X,Y) -> -can_be_conceived_without(Y,X) ).
+
 end_of_list.
 
 
