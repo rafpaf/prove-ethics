@@ -23,6 +23,7 @@
   a mind rather than rationally compel
   it.
 * if an attribute is a substance, then since each substance has an attribute,
-  attributes have attributes. (not realizing this led to infinite loops)
+  attributes have attributes. (not realizing this led to infinite loops at
+  commit id 8e45e21d4060647c7fa672435c4991d55da71170)
 * How this may be used: (1) If a shorter path exists between A and B, that is
   evidence that Spinoza wanted the path.
