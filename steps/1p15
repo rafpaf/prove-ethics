@@ -10,7 +10,7 @@
 
 formulas(assumptions).
 
-    all X ( is_in(X,God) & -can_be_without(X,God) & -can_be_conceived_without(God) ).
+    all X ( is_in(X,God) ). %& -can_be_without(X,God) & -can_be_conceived_without(God) ).
 
 end_of_list.
 
