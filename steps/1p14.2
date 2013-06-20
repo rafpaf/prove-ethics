@@ -10,20 +10,36 @@
 % the first part of this demonstration) is absurd. Therefore, except for God no
 % substance can be or be conceived, q.e.d.
 
-1. 1def6 : given
+1. 1def6 (Given.)
 
-2. 1p11 : given
+2. 1p11 (Given.)
 
 % Every substance has an attribute.
-3. all S ( is_substance(S) -> ( exists A ( is_attribute_of(A, S) ) ) ). : given
+3. (Given.)
+all S ( is_substance(S) -> ( exists A ( is_attribute_of(A, S) ) ) ).
 
-4. 1p5 : given
+4. 1p5 (Given.)
 
 % If there exists an S such that S is a substance and S is not a god, then
 % there would be two substances of the same attribute.
-5. ( exists S (is_substance(S) and S!=God) )
-   -> (   ). : given
+5. (Given.)
+(
+    exists S
+    (
+        is_substance(S) and
+        S!=God
+    )
+)
+->
+(
+    exists S exists T exists A
+    (
+        S!=T and
+        is_attribute_of(A,S) and
+        is_attribute(A,T)
+    )
+).
 
-C. all S ( is_substance(S) -> S=G ).
+C. all S ( is_substance(S) -> (S=God) ).
 
 % vim:ft=prover9
