@@ -4,16 +4,16 @@ formulas(assumptions).
     % through itself, i.e., that whose concept does not require the concept of
     % another thing, from which it must be formed.
 
-    all s (
-        is_substance(s) <-> (
-            % s is the only thing it is in
-            all t ( is_in(s,t) <-> (s=t) )
+    all S (
+        is_substance(S) <-> (
+            % S is the only thing it is in
+            all T ( is_in(S,T) <-> (S=T) )
         )
     ).
 
-    all s (
-        is_substance(s) <-> (
-            all t ( is_conceived_through(s,t) <-> (s=t) )
+    all S (
+        is_substance(S) <-> (
+            all T ( is_conceived_through(S,T) <-> (S=T) )
             % &
             % % It's not the case that...
             % -(
@@ -31,9 +31,9 @@ formulas(assumptions).
     ).
 
     % The definition seems to be used in this way too.
-    %all s (
-    %    is_substance(s) <-> is_in(s,s)
-    %).
+    all S (
+        is_substance(S) <-> is_in(S,S)
+    ).
 
     % TODO: Because this is a real definition, it states not only the
     % biconditional, but also that the biconditional makes plain the essence of

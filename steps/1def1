@@ -1,8 +1,8 @@
 formulas(assumptions).
 
     % Definition of causa sui
-    all x (
-        causes(x,x) <-> essence_involves_existence(x)
+    all X (
+        causes(X,X) <-> essence_involves_existence(X)
     ).
 
 end_of_list.

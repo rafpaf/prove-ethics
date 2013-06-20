@@ -1,181 +1,181 @@
 formulas(assumptions).
 
     % Trivially, anything that's an idea of something is an idea.
-    all i all o ( is_idea_of(i,o) -> is_idea(i) ).
-    all i all o ( is_cognition_of(i,o) <-> is_idea_of(i,o) ).
+    all I all O ( is_idea_of(I,O) -> is_idea(I) ).
+    all I all O ( is_cognition_of(I,O) <-> is_idea_of(I,O) ).
 
     % Ideas = concepts
-    all i all x ( is_idea_of(i,x) <-> is_concept_of(i,x) ).
+    all I all X ( is_idea_of(I,X) <-> is_concept_of(I,X) ).
 
     % Whatever we end up talking about is a "thing".
-    all x is_thing(x).
+    all X is_thing(X).
 
     % There is an idea of each thing. (Needed for 2p7)
-    all t ( exists i ( is_idea_of(i, t) ) ).
+    all T ( exists I ( is_idea_of(I, T) ) ).
 
     % Definition of essential involvement
-    all x all F (
-        involves_essentially(x,F)
-        <-> all e ( is_essence_of(e,x) -> involves(e,F) )
+    all X all F (
+        involves_essentially(X,F)
+        <-> all E ( is_essence_of(E,X) -> involves(E,F) )
     ).
 
     % We need either this or 'everything has a cause'
     % Everything is conceived through something.
-    all x (exists y conceived_through(x,y)).
+    all X (exists Y conceived_through(X,Y)).
 
     % Everything has a cause.
-    all x (exists y causes(y,x)).
+    all X (exists Y causes(Y,X)).
 
     % Relationship between conceivability and necessity.
-    all x all F ( -conceivably_has(x,F) <-> necessarily_lacks(x,F) ).
+    all X all F ( -conceivably_has(X,F) <-> necessarily_lacks(X,F) ).
 
     % Reformulations of above.
-    all x all F ( necessarily_lacks(x,F) <-> -possibly_has(x,F) ).
-    all x all F ( conceivably_lacks(x,F) <-> -necessarily_has(x,F) ).
+    all X all F ( necessarily_lacks(X,F) <-> -possibly_has(X,F) ).
+    all X all F ( conceivably_lacks(X,F) <-> -necessarily_has(X,F) ).
 
     % Seemingly at least one of these is needed for 1p1
-    all x all y ( is_conceived_through(y, x) -> is_prior_in_nature_to(x, y) ).
-    all x all y ( is_in(y, x) -> is_prior_in_nature_to(x, y) ).
+    all X all Y ( is_conceived_through(Y, X) -> is_prior_in_nature_to(X, Y) ).
+    all X all Y ( is_in(Y, X) -> is_prior_in_nature_to(X, Y) ).
 
-    all a all s ( is_affection_of(a,s) -> ( is_affection(a) & has(s, a) ) ).
-    all a all s ( is_attribute_of(a,s) -> ( is_attribute(a) & has(s, a) ) ).
+    all A all S ( is_affection_of(A,S) -> ( is_affection(A) & has(S, A) ) ).
+    all A all S ( is_attribute_of(A,S) -> ( is_attribute(A) & has(S, A) ) ).
 
-    all x all y ( is_mode_of(x,y) <-> is_affection_of(x,y) ).
+    all X all Y ( is_mode_of(X,Y) <-> is_affection_of(X,Y) ).
 
-    all x ( is_mode(x) <-> is_affection(x) ).
+    all X ( is_mode(X) <-> is_affection(X) ).
 
-    all x all y ( is_mode_of(x,y) <-> ( is_mode(x) & has(y, x) ) ).
+    all X all Y ( is_mode_of(X,Y) <-> ( is_mode(X) & has(Y, X) ) ).
 
-    all x all y (
-        is_conceived_through(a, b)
+    all X all Y (
+        is_conceived_through(A, B)
         ->
         (
-            exists ca exists cb (
-                is_concept_of(ca, a) &
-                is_concept_of(cb, b) &
-                involves(cb, ca)
+            exists CA exists CB (
+                is_concept_of(CA, A) &
+                is_concept_of(CB, B) &
+                involves(CB, CA)
             )
         )
     ).
 
-    all a all b (
-        neither_is_understood_through_the_other(a, b)
+    all A all B (
+        neither_is_understood_through_the_other(A, B)
         <->
         (
-            -is_understood_through(a, b)
-            & -is_understood_through(b, a)
+            -is_understood_through(A, B)
+            & -is_understood_through(B, A)
         )
     ).
 
-    all a all b (
-        neither_causes_the_other(a, b)
+    all A all B (
+        neither_causes_the_other(A, B)
         <->
         (
-            -causes(a, b)
-            & -causes(b, a)
+            -causes(A, B)
+            & -causes(B, A)
         )
     ).
 
-    all a all b (
-        the_concept_of_the_one_does_not_involve_the_concept_of_the_other(a, b)
+    all A all B (
+        the_concept_of_the_one_does_not_involve_the_concept_of_the_other(A, B)
         <->
         (
-            all ca all cb (
+            all CA all CB (
                 (
-                    is_concept_of(ca, a)
-                    & is_concept_of(cb, b)
+                    is_concept_of(CA, A)
+                    & is_concept_of(CB, B)
                 )
                 ->
                 (
-                    -involves(ca, cb)
-                    & -involves(cb, ca)
+                    -involves(CA, CB)
+                    & -involves(CB, CA)
                 )
             )
         )
     ).
 
-    all a all b (
-        causes(a, b) -> is_understood_through(b, a)
+    all A all B (
+        causes(A, B) -> is_understood_through(B, A)
     ).
 
-    all a all b (
-        is_understood_through(a, b) <-> is_conceived_through(a, b)
+    all A all B (
+        is_understood_through(A, B) <-> is_conceived_through(A, B)
     ).
 
     % This is to bring everything under the scope of 1a1
-    all x ( is(x) ).
+    all X ( is(X) ).
 
     % Controversial but I think it's needed for 1p4. Talk of attributes is just
     % a way of talking about how a substance is conceived and it can be
     % regimented out.
-    all a ( is_attribute(a) <-> is_substance(a) ).
+    all A ( is_attribute(A) <-> is_substance(A) ).
 
-    all producer all product (
-        produces(producer, product)
+    all X all Y (
+        produces(X, Y)
         ->
-        causes(producer, product)
+        causes(X, Y)
     ).
 
-    all a (
-        is_only_in_itself(a)
+    all A (
+        is_only_in_itself(A)
         <->
         (
-            all b ( is_in(a,b) -> (b=a) )
+            all B ( is_in(A,B) -> (B=A) )
         )
     ).
 
-    all a (
-        is_only_in_another(a)
+    all A (
+        is_only_in_another(A)
         % better: is only in exactly one, distinct, thing
         <->
         (
-            exists b ( -(b=a) & is_in(a,b) )
+            exists B ( -(B=A) & is_in(A,B) )
         )
     ).
 
-    all a all b (
-        causes(a, b) <-> is_in(b, a)
+    all A all B (
+        causes(A, B) <-> is_in(B, A)
     ).
 
-    %all a all b ( -produces(a, b) ). % just for debugging 1p6
+    %all A all B ( -produces(A, B) ). % just for debugging 1p6
 
     % If we write 2p7 in a way that involves the idea of a "connection", then we might need these.
     % Each dependency relation is a "connection" in a graph.
-    %all x all y ( depends_on(x,y) <-> is_connected_to(x,y) ).
-    %all x all y ( depends_on(x,y) <-> is_connected_to(y,x) ). % perhaps?
-    %all x all y ( involves(x,y) <-> is_connected_to(x,y) ).
-    %all x all y ( involves(x,y) <-> is_connected_to(y,x) ). % perhaps?
-    %all x all y ( causes(x,y) <-> is_connected_to(x,y) ).
-    %all x all y ( causes(x,y) <-> depends_on(y,x) ). % perhaps?
-    %all x all y ( is_connected_to(x,y) -> causes(x,y) ). % might make 2p7 work
-    %all x all y ( is_connected_to(x,y) -> ( causes(x,y) | depends_on(x,y) | involves(x,y) ) ). % needed for 2p7?
+    %all X all Y ( depends_on(X,Y) <-> is_connected_to(X,Y) ).
+    %all X all Y ( depends_on(X,Y) <-> is_connected_to(Y,X) ). % perhaps?
+    %all X all Y ( involves(X,Y) <-> is_connected_to(X,Y) ).
+    %all X all Y ( involves(X,Y) <-> is_connected_to(Y,X) ). % perhaps?
+    %all X all Y ( causes(X,Y) <-> is_connected_to(X,Y) ).
+    %all X all Y ( causes(X,Y) <-> depends_on(Y,X) ). % perhaps?
+    %all X all Y ( is_connected_to(X,Y) -> causes(X,Y) ). % might make 2p7 work
+    %all X all Y ( is_connected_to(X,Y) -> ( causes(X,Y) | depends_on(X,Y) | involves(X,Y) ) ). % needed for 2p7?
 
-    all s ( pertains_to_its_nature_to_exist(s) <-> essence_involves_existence(s) ).
+    all S ( pertains_to_its_nature_to_exist(S) <-> essence_involves_existence(S) ).
 
-    all s ( -conceivably_does_not_exist(s) <-> necessarily_exists(s) ).
+    all S ( -conceivably_does_not_exist(S) <-> necessarily_exists(S) ).
 
-    all x ( necessarily_exists(x) <-> ( all e ( is_existence(e) -> necessarily_has(x, e) ) ) ).
+    all X ( necessarily_exists(X) <-> ( all E ( is_existence(E) -> necessarily_has(X, E) ) ) ).
 
-    exists ( God ).
+    %exists God.
 
     % God is a substance.
-    is_substance(God).
+    %is_substance(God).
     % God has all the attributes.
-    all a ( is_attribute(a) -> is_attribute_of(God) ).
+    %all A ( is_attribute(A) -> is_attribute_of(God) ).
 
     % Needed for 1p14. Each substance has an attribute.
-    all s ( is_substance(s) -> ( exists a ( is_attribute_of(a, s) ) ) ).
+    all S ( is_substance(S) -> ( exists A ( is_attribute_of(A, S) ) ) ).
 
     % Rewriting the above.
-    all s all t all a (
+    all S all T all A (
         % If an attribute belongs to two substances...
-        ( is_substance(s) & is_substance(t) & is_attribute_of(a, s) & is_attribute_of(a, t) )
+        ( is_substance(S) & is_substance(T) & is_attribute_of(A, S) & is_attribute_of(A, T) )
         ->
         % ...then they are identical
-        (s=t)
+        (S = T)
     ).
 
-    necessarily_exists(God).
+    %necessarily_exists(God).
 
 end_of_list.
 

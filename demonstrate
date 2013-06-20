@@ -3,8 +3,8 @@ args=$@
 conclusions=${args%from*}
 premises=${args#*from}
 cd steps
-eval "cat $conclusions | sed 's/assumptions/goals/' | cat - $premises | prover9 > /dev/null 2>&1"
-
-# TODO: check to see that all the premises are needed. This is an important
-# debugging feature, because if the conclusion is following straightforwardly
-# from none or only a few of the premises, then I've written it wrong.
+cat settings $conclusions | \
+sed 's/formulas(assumptions)/formulas(goals)/' | \
+cat - $premises | \
+prover9 \
+> /dev/null 2>&1

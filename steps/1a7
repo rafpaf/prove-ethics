@@ -3,10 +3,10 @@
 
 formulas(assumptions).
 
-    all x (
-        conceivably_does_not_exist(x)
+    all X (
+        conceivably_does_not_exist(X)
         ->
-        -essence_involves_existence(x)
+        -essence_involves_existence(X)
     ).
 
 end_of_list.
