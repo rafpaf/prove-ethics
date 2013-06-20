@@ -108,7 +108,7 @@ formulas(assumptions).
     % Controversial but I think it's needed for 1p4. Talk of attributes is just
     % a way of talking about how a substance is conceived and it can be
     % regimented out.
-    all A ( is_attribute(A) <-> is_substance(A) ).
+    %all A ( is_attribute(A) <-> is_substance(A) ).
 
     all X all Y (
         produces(X, Y)
