@@ -1,0 +1,17 @@
+% 1p15: Whatever is, is in God, and nothing can be or be conceived without God.
+%
+% Dem.: Except for God, there neither is, nor can be conceived, any substance
+% (by 1p14), i.e. (by 1def3), thing that is in itself and is conceived through
+% itself.  But modes (by 1def5) can neither be nor be conceived without
+% substance. So they can be in the divine nature alone, and can be conceived
+% through it alone.  But except for substances and modes [II/57] there is
+% nothing (by 1a1).  Therefore, [NS: everything is in God and] nothing can be
+% or be conceived without God, q.e.d.
+
+formulas(assumptions).
+
+    all X ( is_in(X,God) & -can_be_without(X,God) & -can_be_conceived_without(God) ).
+
+end_of_list.
+
+% vim:ft=prover9
