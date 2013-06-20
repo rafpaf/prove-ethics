@@ -15,16 +15,13 @@
 
 formulas(assumptions).
 
-    % Paraphrase: no two substances share any attributes.
+    % Rewriting the above.
     all s all t all a (
-        % There is no attribute that belongs to two distinct substances.
-        -(
-            is_substance(s) &
-            is_substance(t) &
-            -identical(s,t) &
-            is_attribute_of(a, s) &
-            is_attribute_of(a, t)
-        )
+        % If an attribute belongs to two substances...
+        ( is_substance(s) & is_substance(t) & is_attribute_of(a, s) & is_attribute_of(a, t) )
+        ->
+        % ...then they are identical
+        (s=t)
     ).
 
 end_of_list.

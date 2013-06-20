@@ -7,7 +7,6 @@ formulas(assumptions).
     % Ideas = concepts
     all i all x ( is_idea_of(i,x) <-> is_concept_of(i,x) ).
 
-
     % Whatever we end up talking about is a "thing".
     all x is_thing(x).
 
@@ -157,30 +156,26 @@ formulas(assumptions).
 
     all x ( necessarily_exists(x) <-> ( all e ( is_existence(e) -> necessarily_has(x, e) ) ) ).
 
-    all s all g ( ( is_god(g) & identical(s,g) ) -> is_god(s) ).
+    exists ( God ).
 
-    all a all b ( identical(a, b) <-> identical(b, a) ).
+    % God is a substance.
+    is_substance(God).
+    % God has all the attributes.
+    all a ( is_attribute(a) -> is_attribute_of(God) ).
 
-    all g ( is_god(g) -> is_substance(g) ).
     % Needed for 1p14. Each substance has an attribute.
     all s ( is_substance(s) -> ( exists a ( is_attribute_of(a, s) ) ) ).
-    all s all t all a (
-        % There is no attribute that belongs to two distinct substances.
-        -(
-            is_substance(s) & is_substance(t) &
-            -identical(s,t) &
-            is_attribute_of(a, s) & is_attribute_of(a, t)
-        )
-    ).
+
     % Rewriting the above.
     all s all t all a (
         % If an attribute belongs to two substances...
         ( is_substance(s) & is_substance(t) & is_attribute_of(a, s) & is_attribute_of(a, t) )
         ->
         % ...then they are identical
-        ( identical(s, t) )
+        (s=t)
     ).
-    all a ( is_attribute(a) -> ( all g ( is_god(g) -> is_attribute_of(a, g) ) ) ).
+
+    necessarily_exists(God).
 
 end_of_list.
 

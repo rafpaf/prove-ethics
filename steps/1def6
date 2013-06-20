@@ -5,12 +5,10 @@
 formulas(assumptions).
 
     % God is a substance.
-    all x (
-        is_god(x) -> is_substance(x)
-    ).
+    is_substance(God).
 
     % God has all the attributes.
-    all a ( is_attribute(a) -> ( all g ( is_god(g) -> is_attribute_of(a,g) ) ) ).
+    all a ( is_attribute(a) -> is_attribute_of(God) ).
 
     %all e (
     %    all x ( is_god(x) -> is_essence_of(e, x) ) -> ( is_eternal(e) & is_infinite(e) )

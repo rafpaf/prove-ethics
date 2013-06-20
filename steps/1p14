@@ -13,7 +13,7 @@
 formulas(assumptions).
 
     % Except God, no substance can be or be conceived.
-    all s ( is_substance(s) -> is_god(s) ).
+    all s ( is_substance(s) -> (s=God) ).
 
 end_of_list.
 
