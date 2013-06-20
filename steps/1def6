@@ -8,7 +8,7 @@ formulas(assumptions).
     is_substance(God).
 
     % God has all the attributes.
-    %all A ( is_attribute(A) -> is_attribute_of(God) ).
+    all A ( is_attribute(A) -> ( exists G ( is_god(G) & is_attribute_of(A,G) ) ) ).
 
     %all e (
     %    all x ( is_god(x) -> is_essence_of(e, x) ) -> ( is_eternal(e) & is_infinite(e) )
