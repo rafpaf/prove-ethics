@@ -33,7 +33,7 @@ test_shorter_paths() {
     done
 }
 
-cat demonstrations | while read arg; do
+cat run_these | while read arg; do
     first_letter=${arg:0:1}
     d=${arg:1}
     if [[ $first_letter = "+" ]]; then
