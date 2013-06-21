@@ -1,0 +1,28 @@
+% 1p16: From the necessity of the divine nature there must follow infinitely
+% many things in infinitely many modes, (i.e., everything which can fall under
+% an infinite intellect.)
+% 
+% Dem.: This Proposition must be plain to anyone, provided he attends to the
+% fact that the intellect infers from the given definition of any thing a
+% number of properties that really do follow necessarily from it (i.e., from
+% the very essence of the thing); and that it infers more properties the more
+% the definition of the thing expresses reality, i.e., the more reality the
+% essence of the defined thing involves. But since the divine nature has
+% absolutely infinite attributes (by 1def6), each of which also expresses an
+% essence infinite in its own kind, from its necessity there must follow
+% infinitely many things in infinite modes (i.e., everything which can fall
+% under an infinite intellect), q.e.d.
+
+formulas(assumptions).
+
+    follows_from(AllModes, DivineNature).
+
+    all a ( is_attribute(a) -> number(modes_of(a), Infinity) ).
+
+    number(DivineAttributes, Infinity).
+
+    is_the_nature_of(DivineNature, God).
+
+end_of_list.
+
+% vim:ft=prover9
