@@ -19,3 +19,13 @@
 * Spinoza assumes that things can't exist in themselves *and* something else.
 * How this may be used: (1) If a shorter path exists between A and B, that is
   evidence that Spinoza wanted the path.
+* Problems with the extant method: I already translate claims into some sort of
+  internal symbolic order that I don't fully understand. For example, take
+  1p16. How do I understand what it means for something to follow from the
+  necessity of the divine nature? I might come to think that I understand this,
+  but never make explicit to myself exactly how it is that I understand it. So
+  I need to make totally explicit to myself and to others how I understand the
+  philosopher. To do I need some sort of symbolic order. So why not predicate
+  logic, which is very simple? It contains *some* contemporary assumptions but
+  *such assumptions are not avoidable --- and simply translating things into a
+  contemporary natural language imports assumptions of its own.
