@@ -182,6 +182,15 @@ formulas(assumptions).
     all X all Y ( causes(X,Y) -> -can_be_without(Y,X) ).
     all X all Y ( is_conceived_through(X,Y) -> -can_be_conceived_without(Y,X) ).
 
+    % the intellect infers from the given definition of any thing a
+    % number of properties that really do follow necessarily from it (i.e., from
+    % the very essence of the thing); (1p16)
+    
+
+    % the intellect...infers more properties the more the definition of the
+    % thing expresses reality, i.e., the more reality the essence of the
+    % defined thing involves. (1p16)
+
 end_of_list.
 
 

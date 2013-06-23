@@ -15,9 +15,11 @@
 
 formulas(assumptions).
 
-    follows_from(AllModes, DivineNature).
-
+    % The number of modes of each attribute is infinite.
     all a ( is_attribute(a) -> number(modes_of(a), Infinity) ).
+
+    % All modes follow from the divine nature.
+    all m ( is_mode(m) -> follows_from(m, DivineNature) ).
 
     number(DivineAttributes, Infinity).
 

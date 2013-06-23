@@ -45,7 +45,8 @@ cat run_these | while read arg; do
             args=`echo $d | sed "s/from/<-/"`
             echo_color 99 "$args"
             echo
-            test_shorter_paths $d
+            # disable for now
+            # test_shorter_paths $d
         else
             echo_color 99 " "
             echo_color 45 " "

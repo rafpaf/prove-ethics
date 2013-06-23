@@ -8,11 +8,19 @@ formulas(assumptions).
     is_substance(God).
 
     % God has all the attributes.
-    all A ( is_attribute(A) -> ( exists G ( is_god(G) & is_attribute_of(A,G) ) ) ).
+    all A ( is_attribute(A) -> ( exists G ( God=G & is_attribute_of(A,G) ) ) ).
 
-    %all e (
-    %    all x ( is_god(x) -> is_essence_of(e, x) ) -> ( is_eternal(e) & is_infinite(e) )
-    %).
+    % Each attribute of God expresses an eternal and infinite essence.
+    all A (
+        is_attribute_of(A, God)
+        ->
+        exists E (
+            is_essence(E) &
+            expresses(A,E) &
+            is_eternal(E) &
+            is_infinite(E)
+        )
+    ).
 
 end_of_list.
 
