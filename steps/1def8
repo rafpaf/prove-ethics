@@ -7,6 +7,8 @@ formulas(assumptions).
     % follows from its definition then its existence is eternity.
     all x (follows_from(existence(x),definition(x)) -> (existence(x) = Eternity)).
 
+    % TODO: Incorporate the "insofar as" bit.
+
 end_of_list.
 
 % vim:ft=prover9

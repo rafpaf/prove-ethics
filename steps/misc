@@ -192,6 +192,7 @@ formulas(assumptions).
 
     follows_from(existence(God),definition(God)).
 
+    % If the existence of something is eternity then it is eternal.
     all x ((existence(x) = Eternity) -> eternal(x)).
 
 end_of_list.
