@@ -1,0 +1,9 @@
+% 1p19: God is eternal, or all God's attributes are eternal.
+%
+formulas(assumptions).
+
+    eternal(God).
+
+end_of_list.
+
+% vim: set filetype=prover9 :

@@ -1,0 +1,12 @@
+% 1def8: By eternity I understand existence itself, insofar as it is conceived
+% to follow necessarily from the definition alone of the eternal thing.
+
+formulas(assumptions).
+
+    % Paraphrasing this as something like: if the existence of something
+    % follows from its definition then its existence is eternity.
+    all x (follows_from(existence(x),definition(x)) -> (existence(x) = Eternity)).
+
+end_of_list.
+
+% vim:ft=prover9

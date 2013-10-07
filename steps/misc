@@ -185,13 +185,15 @@ formulas(assumptions).
     % the intellect infers from the given definition of any thing a
     % number of properties that really do follow necessarily from it (i.e., from
     % the very essence of the thing); (1p16)
-    
 
     % the intellect...infers more properties the more the definition of the
     % thing expresses reality, i.e., the more reality the essence of the
     % defined thing involves. (1p16)
 
-end_of_list.
+    follows_from(existence(God),definition(God)).
 
+    all x ((existence(x) = Eternity) -> eternal(x)).
+
+end_of_list.
 
 % vim:ft=prover9
