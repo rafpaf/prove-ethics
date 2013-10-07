@@ -1,0 +1,16 @@
+% 1p24: The essence of things produced by God does not involve
+% existence.
+
+formulas(assumptions).
+
+    % The phrase 'things produced by God' implicitly excludes
+    % God.
+    all x (
+        (produced_by(x,God) & -(God=x))
+        ->
+        -essence_involves_existence(x)
+    ).
+
+end_of_list.
+
+% vim:ft=prover9

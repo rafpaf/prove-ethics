@@ -14,6 +14,12 @@ formulas(assumptions).
         )
     ).
 
+    all M all S (
+        ( is_mode(M) & is_mode_of(M, S) & is_substance(S) )
+        ->
+        (is_in(M, S) & is_conceived_through(M, S))
+    ).
+
     all M ( ( exists S ( is_in(M, S) ) ) -> is_mode_of(M, S) ).
 
     % TODO: Haven't encoded the "I understand" bit.

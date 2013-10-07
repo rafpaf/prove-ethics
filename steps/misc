@@ -196,6 +196,8 @@ formulas(assumptions).
     % eternal.
     all x ((existence(x) = Eternity) -> eternal(x)).
 
+    all A all B (produced_by(B, A) <-> produces(A, B)).
+
 end_of_list.
 
 % vim:ft=prover9
