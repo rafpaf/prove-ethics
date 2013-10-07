@@ -182,13 +182,51 @@ formulas(assumptions).
     all X all Y ( causes(X,Y) -> -can_be_without(Y,X) ).
     all X all Y ( is_conceived_through(X,Y) -> -can_be_conceived_without(Y,X) ).
 
-    % the intellect infers from the given definition of any thing a
-    % number of properties that really do follow necessarily from it (i.e., from
-    % the very essence of the thing); (1p16)
+    % the intellect infers from the given definition of any thing a number of
+    % properties that really do follow necessarily from it (i.e., from the very
+    % essence of the thing); (1p16)
 
-    % the intellect...infers more properties the more the definition of the
+    % "the intellect...infers more properties the more the definition of the
     % thing expresses reality, i.e., the more reality the essence of the
-    % defined thing involves. (1p16)
+    % defined thing involves." (1p16)
+
+    % Paraphrase this as: if the definition of a thing expresses an infinite
+    % amount of reality, then the intellect infers an infinite number of
+    % properties from it.
+    all x (
+        ( exists amount_of_reality (
+            expresses(definition(x),amount_of_reality) &
+            infinite(amount_of_reality)
+        ))
+        ->
+        exists properties (
+            (properties = modes_of(x)) &
+            (a_infers_b_from_c(Intellect, properties, definition(x))) &
+            infinite(properties)
+        )
+    ).
+
+    exists amount_of_reality (
+        expresses(definition(God),amount_of_reality) & infinite(amount_of_reality)
+    ).
+
+    % If something expresses an infinite essence...
+    all x all y (
+        (
+            expresses(x,y) & is_essence_of(y,x) & infinite(y)
+        )
+        ->
+        % ...then the intellect infers an infinite set of properties from it.
+        exists properties (
+            (properties = modes_of(x)) &
+            (a_infers_b_from_c(Intellect, properties, definition(x))) &
+            infinite(properties)
+        )
+    ).
+
+    all x (infinite(x) <-> number(x, Infinity)).
+
+    all x (is_infinite(x) <-> infinite(x)).
 
     follows_from(existence(God),definition(God)).
 
@@ -197,6 +235,8 @@ formulas(assumptions).
     all x ((existence(x) = Eternity) -> eternal(x)).
 
     all A all B (produced_by(B, A) <-> produces(A, B)).
+
+    is_the_nature_of(DivineNature, God).
 
 end_of_list.
 

@@ -16,14 +16,16 @@
 formulas(assumptions).
 
     % The number of modes of each attribute is infinite.
-    all a ( is_attribute(a) -> number(modes_of(a), Infinity) ).
+    %all a ( is_attribute(a) -> number(modes_of(a), Infinity) ).
+    exists properties (
+        (properties = modes_of(God)) &
+        (a_infers_b_from_c(Intellect, properties, definition(God))) &
+        infinite(properties)
+    ).
 
     % All modes follow from the divine nature.
-    all m ( is_mode(m) -> follows_from(m, DivineNature) ).
 
-    number(DivineAttributes, Infinity).
-
-    is_the_nature_of(DivineNature, God).
+    %number(DivineAttributes, Infinity).
 
 end_of_list.
 
