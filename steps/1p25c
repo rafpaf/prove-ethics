@@ -1,0 +1,22 @@
+% 1p25c: Particular things are nothing but affections of God's attributes, *or*
+% modes by which God's attributes are expressed in a certain and determinate
+% way.  The demonstration is evident from 1p15 and 1def5.
+
+formulas(assumptions).
+
+    all t (
+        is_particular_thing(t) ->
+        (
+            exists attribute exists affection (
+                is_nothing_but(t, affection) &
+                is_affection_of(affection, attribute)
+                is_attribute_of(attribute, God)
+            )
+            &
+            is_mode(t)
+        )
+    ).
+
+end_of_list.
+
+% vim:ft=prover9
