@@ -1,7 +1,7 @@
 formulas(assumptions).
 
     % 1p1: A substance is prior in nature to its affections.
-    all X all A (
+    all S all A (
         ( is_substance(S) & is_affection_of(A, S) )
         ->
         is_prior_in_nature_to(S, A)
