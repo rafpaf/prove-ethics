@@ -4,16 +4,21 @@
 
 formulas(assumptions).
 
+    % Paraphrasing as: each particular thing is nothing but an affection of an
+    % attribute of God and this affection is a mode that expresses an attribute
+    % of God.
     all t (
         is_particular_thing(t) ->
         (
             exists attribute exists affection (
                 is_nothing_but(t, affection) &
-                is_affection_of(affection, attribute)
+                is_affection_of(affection, attribute) &
                 is_attribute_of(attribute, God)
             )
             &
-            is_mode(t)
+            is_mode(affection)
+            &
+            expresses_in_a_certain_and_determinate_way(affection, attribute)
         )
     ).
 

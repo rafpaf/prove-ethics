@@ -207,7 +207,8 @@ formulas(assumptions).
     ).
 
     exists amount_of_reality (
-        expresses(definition(God),amount_of_reality) & infinite(amount_of_reality)
+        expresses(definition(God), amount_of_reality) &
+        infinite(amount_of_reality)
     ).
 
     % If something expresses an infinite essence...
@@ -237,6 +238,21 @@ formulas(assumptions).
     all A all B (produced_by(B, A) <-> produces(A, B)).
 
     is_the_nature_of(DivineNature, God).
+
+    % Possibly incorrect.
+    all x all y ( is_nothing_but(x,y) <-> x=y ).
+
+    % A mode of a substance is a mode of one of its attributes.  Helps 1p25c go
+    % through.
+    all M all S (
+        is_mode_of(M, S)
+        ->
+        exists A (is_attribute_of(A, S) & is_mode_of(M, A))
+    ).
+
+    % Assumptions that allow 1p25c to go through.
+    all x all y (expresses(x,y) -> expresses_in_a_certain_and_determinate_way(x,y)).
+    all x all y (is_mode_of(x,y) -> expresses(x,y)).
 
 end_of_list.
 

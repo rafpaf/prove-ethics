@@ -1,0 +1,35 @@
+% [II/69] 1p28: Every singular thing, or any thing which is finite and has a
+% determinate existence, can neither exist nor be determined to produce an
+% effect unless it is determined to exist and produce an effect by another
+% cause, which is also finite and has a determinate existence; and again, this
+% cause also can neither exist nor be determined to produce an effect unless it
+% is determined to exist and produce an effect by another, which is also finite
+% and has a determinate existence, and so on, to infinity.[^fn58]
+
+formulas(assumptions).
+
+    all y (
+        % Every singular thing, or any thing which is finite and has a
+        % determinate eyistence,
+        (
+            is_singular(y) & is_thing(y) &
+            is_finite(y) & has_determinate_existence(y) &
+            (exists(y) | determined_to_produce_effect(y) )
+        )
+        % can neither exist nor be determined to produce an
+        % effect unless
+        ->
+        % it is determined to exist and produce an effect by another cause,
+        % which is also finite and has a determinate existence;
+        (
+            exists x exists z (
+                determines_to_exist(x,y) &
+                x_determines_y_to_produce_z(x,y,z) &
+                is_finite(x) & has_determinate_existence(x)
+            )
+        )
+    ).
+
+end_of_list.
+
+% vim: set filetype=prover9 :
