@@ -46,7 +46,7 @@ cat run_these | while read arg; do
             echo_color 99 "$args"
             echo
             # disable for now
-            test_shorter_paths $d
+            # test_shorter_paths $d
         else
             echo_color 99 " "
             echo_color 45 " "
@@ -57,3 +57,7 @@ cat run_these | while read arg; do
         fi
     fi
 done
+
+# test that no combination of premises raises a syntax error
+premises=steps/*
+test_shorter_paths "true" 

@@ -254,6 +254,14 @@ formulas(assumptions).
     all x all y (expresses(x,y) -> expresses_in_a_certain_and_determinate_way(x,y)).
     all x all y (is_mode_of(x,y) -> expresses(x,y)).
 
+    % all x (has_always_existed(x) <-> sempiternal(x)).
+    % all x (has_always_been_infinite(x) <-> is_infinite(x)).
+
+    % all x all y (eternal_through(x, y) -> is_eternal(x)).
+    % all x all y (infinite_through(x, y) -> is_infinite(x)).
+
+    % all x ( is_finite(x) <-> -is_infinite(x) ).
+
 end_of_list.
 
 % vim:ft=prover9

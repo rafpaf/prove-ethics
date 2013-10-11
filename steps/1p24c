@@ -1,0 +1,21 @@
+% 1p24c: From this it follows that God is not only the cause of things'
+% beginning to exist, but also of their persevering in existing, *or* (to use a
+% Scholastic term) God is the cause of the being of things.  For -- whether the
+% things [NS: produced] exist or not -- so long as we attend to their essence,
+% we shall find that it involves neither existence nor duration. So their
+% essence can be the cause neither of their existence nor of their duration,
+% but only God, to whose nature alone it pertains to exist[, can be the cause]
+% (by 1p14c1).
+
+formulas(assumptions).
+
+    % God is...the cause of things' persevering in existing.
+    all t exists b ( thing(t) & is_being_of(b, t) & partial_cause(God, b) ).
+
+    % Noticed while doing this: we can't translate this as "God is *the* cause
+    % of the being of things" because there are other causes. So we must
+    % translate it as "God is a cause"
+
+end_of_list.
+
+% vim:ft=prover9

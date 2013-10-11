@@ -1,0 +1,29 @@
+% 1p22: Whatever follows from some attribute of God
+% insofar as it is modified by a modification which,
+% through the same attribute, exists necessarily and
+% is infinite, must also exist necessarily and be
+% infinite.
+
+formulas(assumptions).
+
+    % Whatever follows from some attribute of God insofar as it is modified by
+    % a modification which, through the same attribute, exists necessarily and
+    % is infinite
+    all x exists mod exists attribute (
+        (
+            % Note simplification here: to follow from an attribute insofar as
+            % it is modified is to follow from a modification of that attribute
+            follows_from(x, mod) &
+            is_modification_of(mod, attribute) &
+            exists_necessarily(mod) &
+            is_infinite(mod)
+        )
+        ->
+        (
+            exists_necessarily(x) & is_infinite(x)
+        )
+    ).
+
+end_of_list.
+
+% vim: set filetype=prover9 :

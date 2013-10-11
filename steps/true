@@ -1,0 +1,9 @@
+% intermediary step on the way to 1p28
+
+formulas(assumptions).
+
+    all x ( x=x ).
+
+end_of_list.
+
+% vim: set filetype=prover9 :

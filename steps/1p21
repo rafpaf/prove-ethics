@@ -1,0 +1,29 @@
+% 1p21: All the things which follow from the absolute nature of any of God's
+% attributes have always had to exist and be infinite, or are, through the same
+% attribute, eternal and infinite.
+
+formulas(assumptions).
+
+    % 1p21: All the things which follow from the absolute nature of any of God's
+    % attributes
+    all thing (
+        (
+            exists nature exists attribute (
+                is_thing(thing) & is_attribute_of(attribute, God) &
+                is_absolute_nature_of(nature, attribute) &
+                follows_from(thing, nature)
+            )
+        )
+        ->
+        % have always had to exist and be infinite, or are, through the same
+        % attribute, eternal and infinite.
+        (
+            has_always_existed(thing) & has_always_been_infinite(thing) &
+            eternal_through(thing, attribute) &
+            infinite_through(thing, attribute)
+        )
+    ).
+
+end_of_list.
+
+% vim: set filetype=prover9 :

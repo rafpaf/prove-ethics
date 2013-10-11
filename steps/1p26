@@ -1,0 +1,16 @@
+% 1p26: A thing which has been determined to produce an effect has necessarily
+% been determined in this way by God; and one which has not been determined by
+% God cannot determine itself to produce an effect.
+
+formulas(assumptions).
+
+    % Simplification
+    all t (
+        (thing(t) & exists e (determined_to_produce(t, e)))
+        ->
+        x_determines_y_to_produce_z(God, t, e)
+    ).
+
+end_of_list.
+
+% vim:ft=prover9
