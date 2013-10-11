@@ -1128,7 +1128,7 @@ such that x determines y to produce z""":
 "Assumption: If it pertains to the nature of something to exist, then its essence involves existence":
 "all s ( pertains_to_its_nature_to_exist(s) -> essence_involves_existence(s) ).",
 
-"Assumption: If something conceivably does not exist then its essence does not involve existence":
+"""Assumption: If something conceivably does not exist then its essence does not involve existence""":
 "all s ( conceivably_does_not_exist(s) -> -essence_involves_existence(s) ).",
 
 "Assumption: If something conceivably does not exist then it conceivably lacks existence":
@@ -1146,3 +1146,5 @@ such that x determines y to produce z""":
 "Assumption: If something is god it necessarily exists":
 "all s ( is_god(s) -> necessarily_exists(s) )."
 }
+
+
