@@ -59,5 +59,4 @@ cat run_these | while read arg; do
 done
 
 # test that no combination of premises raises a syntax error
-premises=steps/*
-test_shorter_paths "true" 
+#test_shorter_paths "true" from 1def3 misc 1p21 1p22 1p24c 1p25c 1p26 misc

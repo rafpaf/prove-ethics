@@ -10,7 +10,7 @@
 formulas(assumptions).
 
     % God is...the cause of things' persevering in existing.
-    all t exists b ( thing(t) & is_being_of(b, t) & partial_cause(God, b) ).
+    all t exists b ( is_being_of(b, t) & partial_cause(God, b) ).
 
     % Noticed while doing this: we can't translate this as "God is *the* cause
     % of the being of things" because there are other causes. So we must

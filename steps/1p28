@@ -8,27 +8,33 @@
 
 formulas(assumptions).
 
+    %all x (is_finite(x) -> exists y (causes(y,x))).
+    %all x all y ((causes(x,y) & infinite(x)) -> infinite(y)).
+    all x (infinite(x)).
     % For simplicity, ignoring "exists" and just handling "determined to exist"
-    all y (
-        % Every singular thing, or any thing which is finite and has a
-        % determinate existence,
-        (
-            is_singular(y) & is_finite(y) & %has_determinate_existence(y) &
-            determined_to_produce_effect(y)
-        )
-        % can neither exist nor be determined to produce an
-        % effect unless
-        ->
-        % it is determined to exist and produce an effect by another cause,
-        % which is also finite and has a determinate existence;
-        (
-            exists x exists z (
-                determines_to_exist(x, y) &
-                x_determines_y_to_produce_z(x, y, z) &
-                is_finite(x) & has_determinate_existence(x)
-            )
-        )
-    ).
+    %all y (
+    %    % Every singular thing, or any thing which is finite and has a
+    %    % determinate existence,
+    %    (
+    %        %is_singular(y) &
+    %        is_finite(y) &
+    %        %has_determinate_existence(y) &
+    %        %determined_to_produce_effect(y)
+    %    )
+    %    % can neither exist nor be determined to produce an
+    %    % effect unless
+    %    ->
+    %    % it is determined to exist and produce an effect by another cause,
+    %    % which is also finite and has a determinate existence;
+    %    (
+    %        exists x ( %exists z 
+    %            is_infinite(x) %determines_to_exist(x, y) &
+    %            %x_determines_y_to_produce_z(x, y, z) &
+    %            %is_finite(x) %&
+    %            %has_determinate_existence(x)
+    %        )
+    %    )
+    %).
 
 end_of_list.
 

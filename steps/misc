@@ -221,11 +221,11 @@ formulas(assumptions).
         exists properties (
             (properties = modes_of(x)) &
             (a_infers_b_from_c(Intellect, properties, definition(x))) &
-            infinite(properties)
+            infinitely_large_set(properties)
         )
     ).
 
-    all x (infinite(x) <-> number(x, Infinity)).
+    all x (infinitely_large_set(x) <-> number(x, Infinity)).
 
     all x (is_infinite(x) <-> infinite(x)).
 
@@ -261,6 +261,12 @@ formulas(assumptions).
     % all x all y (infinite_through(x, y) -> is_infinite(x)).
 
     % all x ( is_finite(x) <-> -is_infinite(x) ).
+
+    all x all y (follows_from(y,x) <-> causes(x,y)).
+    all x all y (follows_from(y,x) <-> determines_to_produce_effect(x,y)).
+    all x all y (follows_from(y,x) <-> determines_to_exist(x,y)).
+    all x all y (determines_to_produce_effect(x,y) <-> exists z (x_determines_y_to_produce_z(x,y,z))).
+    all x (finite(x) <-> has_determinate_existence(x)).
 
 end_of_list.
 

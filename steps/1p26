@@ -4,9 +4,9 @@
 
 formulas(assumptions).
 
-    % Simplification
+    % Simplification: doesn't subselect things in particular
     all t (
-        (thing(t) & exists e (determined_to_produce(t, e)))
+        (exists e (determined_to_produce(t, e)))
         ->
         x_determines_y_to_produce_z(God, t, e)
     ).
