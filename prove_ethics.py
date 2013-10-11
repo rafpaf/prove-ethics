@@ -1,4 +1,7 @@
 #!/usr/bin/python
+import subprocess
+import json
+
 steps = {
 
 '1a1': """
@@ -1147,4 +1150,48 @@ such that x determines y to produce z""":
 "all s ( is_god(s) -> necessarily_exists(s) )."
 }
 
+demos = {
+        '1p1': '1def3 1def5',
+        #'1p1': '1def3 1def5',
+        #'1p1': '1def3 1def5',
+        #'1p2': '1def3',
+        #'1p2v2': '1def3',
+        #'1p3': '1a4 1a5',
+        #'1p4': '1a1 1def3 1def4 1def5',
+        #'1p4': '1a1 1def3 1def5',
+        #'1p6': '1p5 1p2 1p3 1def3',
+        #'2p7': '1a4',
+        #'1p11': '1a7 1p7 1def6',
+        #'1p14': '1def6 1p11 1p5',
+        #'1p15': '1p14 1def3 1def5 1a1',
+        #'1p16.1': '1def6',
+        #'1p16.2': '1def6',
+        #'1p19': '1def6 1p7 1def8 1def4',
+        #'1p24': '1def1 1def3',
+        #'1p25c': '1p15 1def5',
+        #'1p28': '1p21',
+        #'1p28.1': '1a1 1def3 1def5 1p21 1p22 1p24c 1p25c 1p26',
+        #'1p28': '1a1 1def3 1def5 1p21 1p22 1p24c 1p25c 1p26',
+        }
 
+
+for (conclusion_key, premise_keys) in demos.items():
+    def escape(x):
+        return x.replace('"','\\\"')
+    premises = "\n".join([escape(steps[key]) for key in premise_keys.split(" ")])
+
+    cmd = """
+    echo "
+    set(prolog_style_variables).
+    formulas(goals).
+    %s
+    end_of_list.
+    formulas(assumptions).
+    %s
+    end_of_list.
+    " | prover9 
+    """
+    # > /dev/null 2>&1
+    cmd = cmd % (escape(steps[conclusion_key]), premises)
+    #print cmd
+    output = subprocess.check_output(cmd, shell=True)
