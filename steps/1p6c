@@ -1,0 +1,13 @@
+% 1p6c: From this it follows that a substance cannot be produced by anything
+% else. For in nature there is nothing except substances and their affections,
+% as is evident from 1a1, 1def3, and 1def5.  But it cannot be produced by a
+% substance (by 1p6).  Therefore, substance absolutely cannot be produced
+% by anything else, q.e.d.
+
+formulas(assumptions).
+
+    all s ( is_substance(s) -> -exists x ( -(x=s) & can_produce(x, s) ) ).
+
+end_of_list.
+
+% vim:ft=prover9

@@ -1,22 +1,23 @@
--sub_self_explanatory from 1def3
--1p1 from 1def3 1def5 misc
--1p2 from 1def3 misc
--1p2v2 from 1def3 misc
--1p3 from 1a4 1a5 misc
--1p4 from 1a1 1def3 1def4 1def5 misc
--1p4 from 1a1 1def3 1def5 misc
--1p6 from 1p5 1p2 1p3 1def3 misc
--2p7 from 1a4 misc
--1p11 from 1a7 1p7 1def6 misc
--1p14 from 1def6 1p11 1p5 misc
--1p15 from 1p14 1def3 1def5 1a1 misc
--1p16.1 from 1def6 misc
--1p16.2 from 1def6 misc
--1p19 from 1def6 1p7 1def8 1def4 misc
--1p24 from 1def1 1def3 misc
--1p25c from 1p15 1def5 misc
-+1p28 from 1p21 misc
-+1p28 from misc
-+true from 1a1 1def3 1def5 1p21 1p22 1p24c 1p25c 1p26 misc
-+1p28.1 from 1a1 1def3 1def5 1p21 1p22 1p24c 1p25c 1p26 misc
-+1p28 from 1a1 1def3 1def5 1p21 1p22 1p24c 1p25c 1p26 misc
+-sub_self_explanatory from 1def03
+-1p01 from 1def03 1def05 misc
+-1p02 from 1def03 misc
+-1p02v2 from 1def03 misc
+-1p03 from 1a04 1a05 misc
+-1p04 from 1a01 1def03 1def04 1def05 misc
+-1p04 from 1a01 1def03 1def05 misc
+-1p06 from 1p05 1p02 1p03 1def03 misc
++1p07 from 1p6c 1def01 misc
+-2p07 from 1a04 misc
+-1p11 from 1a07 1p07 1def06 misc
+-1p14 from 1def06 1p11 1p05 misc
+-1p15 from 1p14 1def03 1def05 1a01 misc
+-1p16.01 from 1def06 misc
+-1p16.02 from 1def06 misc
+-1p19 from 1def06 1p07 1def08 1def04 misc
+-1p24 from 1def01 1def03 misc
+-1p25c from 1p15 1def05 misc
+-1p28 from 1p21 misc
+-1p28 from misc
+-true from 1a01 1def03 1def05 1p21 1p22 1p24c 1p25c 1p26 misc
+-1p28.01 from 1a01 1def03 1def05 1p21 1p22 1p24c 1p25c 1p26 misc
+-1p28 from 1a01 1def03 1def05 1p21 1p22 1p24c 1p25c 1p26 misc

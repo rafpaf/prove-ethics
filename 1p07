@@ -1,0 +1,12 @@
+% 1p7: It pertains to the nature of a substance to exist.
+% Dem.: A substance cannot be produced by anything else (by 1p6c); therefore it
+% will be the cause of itself, i.e. (by 1def1), its essence necessarily involves
+% existence, or it pertains to its nature to exist, q.e.d.
+
+formulas(assumptions).
+
+    all s ( is_substance(s) -> -exists x ( -(x=s) & can_produce(x, s) ) ).
+
+end_of_list.
+
+% vim:ft=prover9
