@@ -6,7 +6,9 @@
 
 formulas(assumptions).
 
-    all s ( is_substance(s) -> pertains_to_its_nature_to_exist(s) ).
+    all x ( exists y ( causes(y, x) ) ).
+    %all x ( exists y ( causes(y, x) ) ).
+    %all s ( is_a_substance(s) -> pertains_to_its_nature_to_exist(s) ).
 
 end_of_list.
 

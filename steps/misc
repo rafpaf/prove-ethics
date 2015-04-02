@@ -108,7 +108,7 @@ formulas(assumptions).
     % Controversial but I think it's needed for 1p4. Talk of attributes is just
     % a way of talking about how a substance is conceived and it can be
     % regimented out.
-    %all A ( is_attribute(A) <-> is_substance(A) ).
+    %all A ( is_attribute(A) <-> is_a_substance(A) ).
 
     all X all Y (
         produces(X, Y)
@@ -157,7 +157,7 @@ formulas(assumptions).
     all X ( necessarily_exists(X) <-> ( all E ( is_existence(E) -> necessarily_has(X, E) ) ) ).
 
     % Needed for 1p14. Each substance has an attribute.
-    all S ( ( is_substance(S) & -is_attribute(S) ) -> ( exists A ( is_attribute_of(A, S) ) ) ).
+    all S ( ( is_a_substance(S) & -is_attribute(S) ) -> ( exists A ( is_attribute_of(A, S) ) ) ).
     % I've included the clause `& -is_attribute(S)`, which is strictly speaking
     % false. If we don't include it, this line combines with the formula
     % stating that each attribute is a substance to produce an infinite loop.
@@ -165,13 +165,13 @@ formulas(assumptions).
     % Rewriting the above.
     all S all T all A (
         % If an attribute belongs to two substances...
-        ( is_substance(S) & is_substance(T) & is_attribute_of(A, S) & is_attribute_of(A, T) )
+        ( is_a_substance(S) & is_a_substance(T) & is_attribute_of(A, S) & is_attribute_of(A, T) )
         ->
         % ...then they are identical
         (S = T)
     ).
 
-    exists S ( is_substance(S) & -(S=God) )
+    exists S ( is_a_substance(S) & -(S=God) )
     ->
     exists S exists T exists A (
         -(S=T) & is_attribute_of(A,S) & is_attribute_of(A,T)
@@ -267,6 +267,7 @@ formulas(assumptions).
     all x all y (follows_from(y,x) <-> determines_to_exist(x,y)).
     all x all y (determines_to_produce_effect(x,y) <-> exists z (x_determines_y_to_produce_z(x,y,z))).
     all x (finite(x) <-> has_determinate_existence(x)).
+    %all x all y (can_produce(x, y) <-> produces(x, y)).
 
 end_of_list.
 

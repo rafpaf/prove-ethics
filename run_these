@@ -6,18 +6,20 @@
 -1p04 from 1a01 1def03 1def04 1def05 misc
 -1p04 from 1a01 1def03 1def05 misc
 -1p06 from 1p05 1p02 1p03 1def03 misc
-+1p07 from 1p6c 1def01 misc
++1p07 from 1p6c 1p07.tacit.1 1def01 misc
++1p07 from 1p07 1p07.tacit.1 1def01 misc
++1p07 from 1p07.tacit.1
 -2p07 from 1a04 misc
 -1p11 from 1a07 1p07 1def06 misc
 -1p14 from 1def06 1p11 1p05 misc
 -1p15 from 1p14 1def03 1def05 1a01 misc
--1p16.01 from 1def06 misc
--1p16.02 from 1def06 misc
+-1p16.1 from 1def06 misc
+-1p16.2 from 1def06 misc
 -1p19 from 1def06 1p07 1def08 1def04 misc
 -1p24 from 1def01 1def03 misc
 -1p25c from 1p15 1def05 misc
 -1p28 from 1p21 misc
 -1p28 from misc
 -true from 1a01 1def03 1def05 1p21 1p22 1p24c 1p25c 1p26 misc
--1p28.01 from 1a01 1def03 1def05 1p21 1p22 1p24c 1p25c 1p26 misc
+-1p28.1 from 1a01 1def03 1def05 1p21 1p22 1p24c 1p25c 1p26 misc
 -1p28 from 1a01 1def03 1def05 1p21 1p22 1p24c 1p25c 1p26 misc

@@ -6,7 +6,9 @@
 
 formulas(assumptions).
 
-    all s ( is_substance(s) -> -exists x ( -(x=s) & can_produce(x, s) ) ).
+    %all s ( is_a_substance(s) -> -exists x ( -(x=s) & can_produce(x, s) ) ).
+    %all s ( is_a_substance(s) -> -exists x ( -(x=s) & produces(x, s) ) ).
+    all s ( is_a_substance(s) -> -exists x ( -(x=s) & causes(x, s) ) ).
 
 end_of_list.
 
