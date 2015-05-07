@@ -1,0 +1,35 @@
+formulas(assumptions).
+
+% EVERY REPRESENTATION IS IDENTICAL TO ITS OBJECT.
+all r ( all o ( represents(r,o) -> identical(r,o))).
+
+% EVERYTHING HAS EXACTLY ONE REPRESENTATION.
+all x (
+        exists r (
+            represents(r,x) & ( 
+                all r2 (
+                    represents(r2,x) ->
+                    identical(r,r2)
+                    )
+                )
+            )
+      ).
+
+% EVERY REPRESENTATION IS CONCEPTUALLY DISTINCT FROM WHAT IT REPRESENTS.
+all x all r (
+        % For every representation of a thing...
+        represents(r,x) -> (
+            % ...that representation and the thing themselves have
+            % representations...
+            exists rr exists rx (
+                represents(rr,r) &
+                represents(rx,x) &
+                % ...and these representations are not identical.
+                identical(rr,rx)
+                )
+            )
+        ).
+
+
+end_of_list.
+% vim:ft=prover9

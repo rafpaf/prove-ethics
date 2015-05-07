@@ -1,0 +1,21 @@
+formulas(assumptions).
+
+% symmetry
+%all x all y ( identical(x,y) -> identical(y,x) ).
+
+% reflexivity
+all x ( identical(x,x) ).
+
+% transitivity
+all x all y all z ( ( identical(x,y) & identical(y,z) ) -> identical(x,z) ).
+
+% indiscernibility of identicals with respect to monadic predicates.
+all x all y all F ( identical(x,y) -> ( F(x) -> F(y) ) ).
+
+% indiscernibility of identicals with respect to dyadic predicates.
+all x all y all z all G ( identical(x,y) -> ( G(x,z) -> G(y,z) ) ).
+all x all y all z all G ( identical(x,y) -> ( G(z,x) -> G(z,y) ) ).
+
+end_of_list.
+
+% vim:ft=prover9
