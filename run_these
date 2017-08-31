@@ -1,11 +1,11 @@
--sub_self_explanatory from 1def03
--1p01 from 1def03 1def05 misc
--1p02 from 1def03 misc
--1p02v2 from 1def03 misc
--1p03 from 1a04 1a05 misc
--1p04 from 1a01 1def03 1def04 1def05 misc
--1p04 from 1a01 1def03 1def05 misc
--1p06 from 1p05 1p02 1p03 1def03 misc
++sub_self_explanatory from 1def03
++1p01 from 1def03 1def05 misc
++1p02 from 1def03 misc
++1p02v2 from 1def03 misc
++1p03 from 1a04 1a05 misc
++1p04 from 1a01 1def03 1def04 1def05 misc
++1p04 from 1a01 1def03 1def05 misc
++1p06 from 1p05 1p02 1p03 1def03 misc
 +1p07 from 1p6c 1p07.tacit.1 1def01 misc
 +1p07 from 1p07 1p07.tacit.1 1def01 misc
 +1p07 from 1p07.tacit.1
