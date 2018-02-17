@@ -35,6 +35,8 @@ formulas(assumptions).
 
     % Seemingly at least one of these is needed for 1p1
     all X all Y ( is_conceived_through(Y, X) -> is_prior_in_nature_to(X, Y) ).
+
+    % This can't be right because God is in God but is not prior to Himself.
     all X all Y ( is_in(Y, X) -> is_prior_in_nature_to(X, Y) ).
 
     all A all S ( is_affection_of(A,S) -> ( is_affection(A) & has(S, A) ) ).

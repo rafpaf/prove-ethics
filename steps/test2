@@ -1,0 +1,8 @@
+
+formulas(assumptions).
+
+    is_blue(Dave).
+
+end_of_list.
+
+% vim:ft=prover9

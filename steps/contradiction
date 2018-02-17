@@ -1,0 +1,7 @@
+formulas(assumptions).
+
+    -(x=x).
+
+end_of_list.
+
+% vim:ft=prover9

@@ -1,0 +1,8 @@
+formulas(assumptions).
+
+%biggerthan(God,Lucifer).
+biggerthan(Lucifer,God).
+
+end_of_list.
+
+% vim:ft=prover9
