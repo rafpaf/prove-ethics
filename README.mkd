@@ -6,6 +6,8 @@ The "steps" directory contains my attempts to translate various propositions
 into a version of first-order logic called "Prover9"
 (http://www.cs.unm.edu/~mccune/prover9/).
 
+Try running "qed". You can see a short tour of the code at https://youtu.be/2tVx4vjRWyo.
+
 # Reminders
 
 * Don't forget periods at the end of formulae.
