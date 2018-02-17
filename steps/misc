@@ -1,5 +1,7 @@
 formulas(assumptions).
 
+    % These are assumptions I think are needed to make some of the demonstrations valid.
+
     % Trivially, anything that's an idea of something is an idea.
     all I all O ( is_idea_of(I,O) -> is_idea(I) ).
     all I all O ( is_cognition_of(I,O) <-> is_idea_of(I,O) ).

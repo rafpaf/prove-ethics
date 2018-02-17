@@ -2,6 +2,10 @@ The goal of this quixotic project is to reconstruct the demonstrations in
 Spinoza's *Ethics* (1677) so as to find new pieces of internal evidence that
 bear on interpretation and help me better understand the arguments.
 
+The "steps" directory contains my attempts to translate various propositions
+into a version of first-order logic called "Prover9"
+(http://www.cs.unm.edu/~mccune/prover9/).
+
 # Reminders
 
 * Don't forget periods at the end of formulae.
