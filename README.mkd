@@ -4,7 +4,8 @@ bear on interpretation and help me better understand the arguments.
 
 The "steps" directory contains my attempts to translate various propositions
 into a version of first-order logic called "Prover9"
-(http://www.cs.unm.edu/~mccune/prover9/).
+(http://www.cs.unm.edu/~mccune/prover9/). A more expressively powerful logic is
+clearly needed, so this is just a start.
 
 Try running "qed". When it stalls, press Ctrl-C to continue.
 
