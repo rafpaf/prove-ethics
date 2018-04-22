@@ -11,6 +11,8 @@ Try running "qed". When it stalls, press Ctrl-C to continue.
 
 You can see a short tour of the code at https://youtu.be/2tVx4vjRWyo.
 
+Maybe with your help we can write "the true codes, according to which all singular things come to be, and are ordered..." (*Treatise on the Emendation of the Intellect*)... :-)
+
 # Reminders
 
 * Don't forget periods at the end of formulae.
